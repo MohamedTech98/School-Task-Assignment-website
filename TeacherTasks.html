@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Tasks</title>
 </head>
-<body style="background-color: #f0f0f0;">
-    <div>
+<body>
+    <!-- <div>
         <nav style="background-color:#003366 ;height: 65px; margin-top: -20px;margin-left:-8px;margin-right:-8px;">
             <ul style="list-style-type: none;display: flex;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <li style="color: white;font-size: xx-large; margin-top: 12px; margin-left: -170px;">EduTask</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -25,14 +25,109 @@
                 </form>
             </ul>
         </nav>
-    </div><br><br>
-    <div style="background-color:rgba(255, 255, 255, 0.9) ;font-size: larger;margin-left: 360px;height: 220px;margin-right: 420px;box-shadow: 0 2px 4px;border-radius: 20px;">
-        <ul style="list-style-type: none; margin-left: 0px;margin-top: 10px;color: black;"><br><br><br>
+    </div><br><br> -->
+        <table>
+        <tr>
+            <td>
+                <b>EduTask</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td > 
+               <a href="TeacherTasks.html">My Tasks</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <a href="">Completed Tasks</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <a href="TeacherProfile.html" >Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </td>
+            <td> 
+            <form>
+            <b>Search</b> 
+            <select>
+                <option value=""disabled selected hidden >Priority</option>
+                <option value="Low" >Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+        </form></td>
+        </tr>
+    </table >
+    <br><br><br><br><br>
+    <center>
+        <table border="1" cellpadding="10" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Prepare Math Quiz</td>
+                    <td>High</td>
+                    <td>Pending</td>
+                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Science Lab Preparation</td>
+                    <td>Medium</td>
+                    <td>Pending</td>
+                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>English Essay Correction</td>
+                    <td>Low</td>
+                    <td>Pending</td>
+                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Parent Meeting Schedule</td>
+                    <td>High</td>
+                    <td>Pending</td>
+                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Update Student Attendance</td>
+                    <td>Medium</td>
+                    <td>Pending</td>
+                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Prepare Presentation Slides</td>
+                    <td>Low</td>
+                    <td>Pending</td>
+                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Review Homework Assignments</td>
+                    <td>Medium</td>
+                    <td>Pending</td>
+                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
+                </tr>
+                    <tr>
+                    <td>8</td>
+                    <td>Organize School Event</td>
+                    <td>High</td>
+                    <td>Pending</td>
+                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
+                </tr>
+            </tbody>
+        </table>
+        
+
+    <!-- <div >
+        <ul><br><br><br>
             <li><strong>ID:</strong> 1</li>
             <li><strong>Title:</strong> Prepare Math Quiz</li>
-            <li><strong>Priority:</strong><span style="background-color: #E74C3C;"> High</span></li>
-            <li><strong>Status:</strong> Pending</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="task_details.html"><button type="button" style="height: 40px;width: 130px;box-shadow: 0 4px 6px;border-radius: 7px;color: white  ;background-color: #003366 ; font-size: medium;">View details</button></a>
+            <li><strong>Priority:</strong><span > High</span></li>
+            <li><strong>Status:</strong> Pending</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button">View details</button>
         </ul>
     </div><br><br>
         <div style="background-color:rgba(255, 255, 255, 0.9) ;font-size: larger;margin-left: 360px;height: 220px;margin-right: 420px;box-shadow: 0 2px 4px;border-radius: 20px;">
@@ -97,10 +192,12 @@
             <li><strong>Status:</strong> Pending</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button type="button" style="height: 40px;width: 130px;box-shadow: 0 4px 6px;border-radius: 7px;color: white  ;background-color: #003366 ;font-size: medium;">View details</button>
         </ul>
-    </div><br><br><br><br>
-    <footer style="background-color: #003366; color: white;height: 60px;margin-left:-8px;margin-right:-8px;text-align:center">
+    </div><br><br><br><br> -->
+    <br><br><br><br><br><br><br><br><br>
+    <footer>
        <br> &copy; 2026 EduTask &nbsp;|&nbsp; IS231 Web Technology Project
     </footer>
+    </center>
     
 </body>
 </html>
