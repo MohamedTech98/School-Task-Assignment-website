@@ -1,101 +1,101 @@
 <!DOCTYPE html>
-
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Task Details</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Details</title>
+</head>
+<body>
 
-    <body style="background-color:#f0f0f0;">
+    <!-- Navigation Bar -->
+    <header>
+        <table>
+            <tr>
+                <td>
+                    <b>EduTask</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+                <td > 
+                <a href="TeacherTasks.html">My Tasks</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="Completed_tasks.html">Completed Tasks</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="TeacherProfile.html" >Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </td>
+            </tr>
+        </table>
+    </header>
 
-    <!-- Navbar -->
+    <!-- Task Details -->
+    <div>
+        <div>
+            <h2 align="center">Task Details</h2>
+            
+            <table cellpadding="10" align="center">
+                <tr>
+                    <td><strong>ID:</strong></td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td><strong>Title:</strong></td>
+                    <td>Prepare Math Quiz</td>
+                </tr>
+                <tr>
+                    <td><strong>Teacher:</strong></td>
+                    <td>Laila Mahmoud</td>
+                </tr>
+                <tr>
+                    <td><strong>Priority:</strong></td>
+                    <td>High</td>
+                </tr>
+                <tr>
+                    <td><strong>Status:</strong></td>
+                    <td>Pending</td>
+                </tr>
+            </table>
 
-        <nav style="background-color:#003366 ;height: 65px; margin-top: -20px;margin-left:-8px;margin-right:-8px;">
-            <ul style="list-style-type: none;display: flex;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="color: white;font-size: xx-large; margin-top: 12px; margin-left: -170px;">EduTask</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li><a href="MyTasks.html" style="text-decoration: none;color: #cccccc ;font-size: larger;"><br>My Tasks</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li><a href=""style="text-decoration: none;color: white ;font-size: larger;"><br>Completed Tasks</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li><a href="" style="text-decoration: none;color: yellow ;font-size: larger;"><br>Profile</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li style="font-size: larger;color: yellow ;"><br>Search</li>&nbsp;&nbsp;&nbsp;&nbsp;
-        </nav>
+            <hr width="50%">
 
-        <br><br>
-
-        <!-- Task Details Card -->
-
-        <div style="background-color:white; width:600px; margin:auto; padding:30px; box-shadow:0 4px 8px rgba(0,0,0,0.2); border-radius:15px; font-size:20px;">
-
-            <h2 style="text-align:center;color:#003366;">Task Details</h2>
-
-            <hr><br>
-
-            <p><strong>ID:</strong> 1</p>
-
-            <p><strong>Title:</strong> Prepare Math Quiz</p>
-
-            <p><strong>Teacher:</strong> Laila Mahmoud </p>
-
-            <p>
-                <strong>Priority:</strong> <span style="padding: 5px 10px; border-radius: 5px; width: fit-content; background-color: #E74C3C; color: white;">High</span>
-            </p>
-
-            <p><strong>Description:</strong></p>
-
-            <p>
-            Prepare a short quiz for grade 8 students covering algebra basics.
-            The quiz should include 10 questions and be ready before Monday.
-            </p>
-
-            <p><strong>Status:</strong> Pending</p>
-
-            <br>
+            <div align="center">
+                <h3>Description:</h3>
+                <p>
+                    Prepare a short quiz for grade 8 students covering algebra basics.<br>
+                    The quiz should include 10 questions and be ready before Monday.
+                </p>
+            </div>
 
             <!-- Update Status Form -->
-
             <form>
-
-                <label><strong>Update Status:</strong></label>
-
-                <select style="height:35px;width:150px;margin-left:10px; border-radius:10px">
-                    <option value="pending">Pending</option>
-                    <option value="completed">Completed</option>
-                </select>
-
-                <br><br>
-
-                <button type="submit"
-                style="
-                height:40px;
-                width:180px;
-                background-color:#003366;
-                color:white;
-                border-radius:7px;
-                box-shadow:0 4px 6px;
-                font-size:16px;
-                ">
-
-                Mark as Completed
-
-                </button>
-
+                <fieldset align="center">
+                    <legend>Update Status</legend>
+                    <table align="center">
+                        <tr>
+                            <td><label for="status">Select Status:</label></td>
+                            <td>
+                                <select id="status" name="status">
+                                    <option value="pending">Pending</option>
+                                    <option value="completed">Completed</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button type="submit">Update</button>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
             </form>
 
             <br>
-            
-            <a href="TeacherTasks.html" style="text-decoration:none;color:#003366;font-weight:bold;">
-                
-            &lt;= Back to My Tasks
-            </a>
-
+            <div align="center">
+                <a href="TeacherTasks.html"><strong>&lt;= Back to My Tasks</strong></a>
+            </div>
         </div>
+    </div>
 
-        <br><br><br><br><br>
+    <br><br>
+    <hr>
 
-        <footer style="background-color:#003366;color:white;height:60px;margin-left:-8px;margin-right:-8px;text-align:center;">
-        <br>
-        © 2026 EduTask | IS231 Web Technology Project
-        </footer>
+    <!-- Footer -->
+    <footer align="center">
+        <p>&copy; 2026 EduTask | IS231 Web Technology Project</p>
+    </footer>
 
-    </body>
+</body>
 </html>
