@@ -6,29 +6,17 @@
     <title>Completed Tasks</title>
 </head>
 <body>
-        <table>
-        <tr>
-            <td>
-                <b>EduTask</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </td>
-            <td > 
-               <a href="TeacherTasks.html">My Tasks</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <a href="Completed_tasks.html">Completed Tasks</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <a href="TeacherProfile.html" >Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </td>
-            <td> 
-            <form>
-            <b>Search</b> 
-            <select>
-                <option value=""disabled selected hidden >Priority</option>
-                <option value="Low" >Low</option>
-                <option value="Medium">Medium</option>
-                <option value="High">High</option>
-            </select>
-        </form></td>
-        </tr>
-    </table >
-    <br><br><br><br><br>
+    <nav >
+        <a href="TeacherTasks.html" class="brand">
+            <div class="logo-icon">📋</div>
+            <span>EduTask</span>
+        </a>
+        <ui class="nav-links">
+            <li><a href="Completed_tasks.html">Completed Tasks</a> </li> 
+            <li><a href="TeacherProfile.html">Profile</a> </li>     
+            <li><a href="index.html" style="color: red;">Logout</a></li>
+        </ui>        
+    </nav >          
     <center>
         <table border="1" cellpadding="10" cellspacing="0" width="100%">
             <thead>
