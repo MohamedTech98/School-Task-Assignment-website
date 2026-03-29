@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --navy: #0f172a;
+  --navy-mid: #1e293b;
+  --navy-light: #334155;
+  --slate: #475569;
+  --amber: #f59e0b;
+  --amber-dark: #d97706;
+  --amber-light: #fef3c7;
+  --red: #ef4444;
+  --green: #22c55e;
+  --green-light: #dcfce7;
+  --white: #ffffff;
+  --off-white: #d9f1f6;
+  --border: #e2e8f0;
+  --text-muted: #94a3b8;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.15);
+  
+}
+/* ------------ BODY ------------*/
+* { 
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box; 
+}
+html { scroll-behavior: smooth; }
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: var(--navy);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.dark{
+    background: var(--navy);
+    color: white;
+}
+.light{
+    background: var(--off-white);
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+ul{
+    list-style: none;
+}
+button ,input, select, textarea{
+    font-family: inherit;
+}
+/*  --------- NAV -------------- */
+nav {
+  background: var(--navy);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  gap: 1rem;
+  backdrop-filter: blur(12px); 
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.brand .logo-icon {
+  width: 36px; height: 36px;
+  background: var(--amber);
+  border-radius: 8px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  font-size: 18px;
+}
+
+.brand span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--white);
+  letter-spacing: 0.01em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--white);
+  background: var(--navy-light);
+}
+
+.nav-links .btn {
+  background: var(--amber);
+  color: var(--navy) !important;
+  font-weight: 600;
+  padding: 7px 18px;
+}
+
+.nav-links .btn:hover {
+  background: var(--amber-dark);
+  color: var(--navy) !important;
+}
+
+/*       PAGE WRAPPER            */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--navy);
+}
+
+.page-header p {
+  color: var(--slate);
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+
+/*           INDEX PAGE            */ 
+.Welcome {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    position: relative;
+}
+.Welcome::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(245,158,11,0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+.Welcome-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(245,158,11,0.15);
+    border: 1px solid rgba(245,158,11,0.3);
+    color: var(--amber);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.5s ease both;
+}
+.Welcome h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.1;
+    max-width: 750px;
+    margin-bottom: 1.25rem;
+    animation: fadeUp 0.5s 0.1s ease both;
+}
+.Welcome h1 span {
+    color: var(--amber);
+}
+.Welcome p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.5s 0.2s ease both;
+}
+.wel-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 0.5s 0.3s ease both;
+}
+.btn-wel-primary {
+    background: var(--amber);
+    color: var(--navy);
+    font-size: 1rem;
+    padding: 13px 32px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-wel-primary:hover {
+    background: var(--amber-dark); 
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 24px rgba(245,158,11,0.35); 
+}
+.btn-wel-outline {
+    background: transparent;
+    color: var(--white);
+    font-size: 1rem;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-weight: 600;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.btn-wel-outline:hover { 
+    border-color: rgba(255,255,255,0.5); 
+    background: rgba(255,255,255,0.05); 
+}
+.roles {
+    padding: 4rem 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.roles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+.role-card {
+    background: var(--navy-mid);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 2rem;
+}
+.role-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    display: flex; align-items: center; gap: 10px;
+}
+.role-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+.role-tag.admin {
+    background: rgba(245,158,11,0.2); 
+    color: var(--amber); 
+}
+.role-tag.teacher { 
+    background: rgba(34,197,94,0.15); 
+    color: #22c55e; 
+}
+
+.role-card .role-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 1.5rem;
+    color: var(--amber);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: gap 0.2s;
+}
+.role-card .role-link:hover {
+    gap: 10px; 
+}
+footer {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 1.5rem;
+    text-align: center;
+    color: #475569;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 640px) { .roles-grid { grid-template-columns: 1fr; } }
+
+/* ── ANIMATION ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up { animation: fadeUp 0.8s ease both; }
+.fade-up-2 { animation: fadeUp 0.8s 0.5s ease both; }
+.fade-up-3 { animation: fadeUp 0.8s 0.5s ease both; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .form-row { grid-template-columns: 1fr; }
+  .detail-grid { grid-template-columns: 1fr; }
+  nav { padding: 0 1rem; }
+  .nav-links { gap: 4px; }
+  .nav-links a { padding: 5px 10px; font-size: 0.82rem; }
+}
+
+
