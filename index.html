@@ -3,60 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>EduTask-Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body >
-    <table>
-        <tr>
-            <td>
-                <b>EduTask</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </td>
-            <td > 
-               <a href="index.html">Home</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <a href="Login.html">Login</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <a href="Signup.html" >sign Up</a>
-            </td>
-        </tr>
-    </table >
-    <br>
+<body class="dark">
+    <nav >
+        <a href="index.html" class="brand">
+            <div class="logo-icon">📋</div>
+            <span>EduTask</span>
+        </a>
+        <ui class="nav-links">
+            <li><a href="Login.html">Login</a> </li> 
+            <li><a href="Signup.html" class="btn">sign Up</a></li>
+        </ui>        
+    </nav >
 
-    <table >
-        <tr>
-            <td >
-                <h1>Welcome to EduTask</h1>
-                <h3>School Task Assignment System</h3>
-                <p>A simple platform for admins to assign tasks to teachers and for teachers to track and complete them.</p>
-                <br>
-                <a href="Login.html"><input type="button" value="Get Started"></a>&nbsp;&nbsp;
-                <a href="Signup.html"><input type="button" value="Create Acount"> </a>
-            </td>
-        </tr>
-    </table>
-    <br>
+    <section class="Welcome">
+        <div class="Welcome-badge">🎓 School Task Management System</div>
+        <h1>Welcome To<br /><span>EduTask.</span></h1>
+        <p>A simple platform for admins to assign tasks to teachers and for teachers to track and complete them.</p>
+        <div class="wel-cta">
+           <a href="signup.html" class="btn-wel-primary">Get Started →</a>
+           <a href="login.html" class="btn-wel-outline">Log In</a>
+        </div>
+    </section>
 
-    <table >
-        <tr>
-            <td  >
-                <h2>👨‍💻For Admins</h2>
-                <p>Take full control of your school's workflow. Assign tasks, set priorities, and keep your team on track — effortlessly.</p>
-               <br>
-               <a href="signup.html">Join as Admin &raquo;</a>
-            </td>
-            <td>
-                <h2>📝For Teachers</h2>
+    <section class="roles">
+        <div class="roles-grid">
+            <div class="role-card">
+               <h3>👤<span class="role-tag admin">Admins</span></h3>
+               <p>Take full control of your school's workflow. Assign tasks, set priorities, and keep your team on track — effortlessly.</p>
+               <a href="signup.html" class="role-link">Sign up as Admin &raquo;</a>
+            </div>
+            <div class="role-card">
+                <h3>🧑‍🏫<span class="role-tag teacher">Teachers</span></h3>
                 <p>Stay on top of everything assigned to you. Focus on what matters most and never miss a deadline again.</p>
-                <br>
-                <a href="signup.html">Join as Teacher &raquo;</a>
-            </td>
-        </tr>
-    </table>
-    <br>
+                <a href="signup.html" class="role-link">Sign up as Teacher &raquo;</a>
+            </div>
+        </div> 
+    </section>
+    
+    <footer>
+       <p>© 2026 EduTask | IS231 Web Technology Project</p>
+    </footer>
 
-    <table >
-        <tr>
-            <td >
-                &copy; 2026 EduTask &nbsp;|&nbsp; IS231 Web Technology Project
-            </td>
-        </tr>
-    </table>
 </body>
 </html>
