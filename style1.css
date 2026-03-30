@@ -1,5 +1,6 @@
 body{
-    background-color: #f8fafc;
+
+    font-family: 'DM Sans', sans-serif;
 }
 #mytasks{
     margin-left: 16%;
@@ -47,14 +48,76 @@ body{
     box-shadow: 0px 4px 12px;
     height: 434px;
     margin-bottom: 22px;
+    font-family: 'DM Sans', sans-serif;
+    
+
 }    
 #viewcompletedbutton{
-    height: 40px;
-    width: 150px;
-    margin-right: auto;
-    margin-top: 5%;
-    border-radius: 12px;
+    height: 35px;
+    width: 170px;
+    border-radius: 8px;
     background-color: #ffffff;
     border:1px solid #e2e8f0;
+    
+
+}
+#viewcompletedbutton:hover{
+    background-color:#f8fafc;
+}
+#headeroftasksearch{
+    display: flex;
+    justify-content: space-between;
+    padding:25px;
+    border-bottom: 1px solid #e2e8f0;
+}
+#filterpriority{
+width: 170px;
+height: 40px;
+border-radius: 8px;
+padding: 9px;
+border-color:#e2e8f0 ;
+font-weight: 600;
+
+}
+#filterpriority:focus{
+    border-color: #f59e0b;
+}
+#searchbutton{
+width: 80px;
+height: 30px;
+border-radius: 8px;
+background-color: #f59e0b;
+color:#0f172a;
+border: none;
+font-family: 'DM Sans', sans-serif;
+font-weight: 600;
+
+
+}
+
+#searchbutton:hover{
+background-color: #d97706;
+height: 35px;
+}
+#rebutton{
+width: 67px;
+height: 30px;
+border-radius: 8px;
+border-color: #e2e8f0;
+background-color:#ffffff ;
+color: #0f172a;
+font-family: 'DM Sans', sans-serif;
+border: 1px solid #e2e8f0;
+font-weight: 600;
+}
+#rebutton:hover{
+    background-color: #f8fafc;
+}
+
+#searchbar{
+    padding: 25px;
+    height: 60px;
+
+
 
 }
