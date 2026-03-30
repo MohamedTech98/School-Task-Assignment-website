@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Dashboard</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body class="light">
-       <nav >
-            <a href="Dashboard.html" class="brand">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_task.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navBar">
+            <nav >
+            <a href="dashboard.html" class="brand">
                 <div class="logo-icon">📋</div>
                 <span>EduTask</span>
             </a>
@@ -16,148 +20,125 @@
                 <li><a href="all_task.html">All Tasks</a> </li>  
                 <li><a href="index.html" style="color: red;">Logout</a></li>
             </ui>        
-        </nav >     
-    <center>
-        <h1>Welcome,Mohamed!</h1>
-        <h2>Overview</h2>
-        <table border="1" cellpadding="10" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th>No. Task</th>
-                    <th>No. Teachers</th>
-                    <th>No. Task is completed</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>20</td>
-                    <td>8</td>
-                    <td>4</td>
-                </tr>
-            </tbody>
-            <tfoot>
+        </nav > 
+        </div>
+        <div class="welcome-admin">
+            <h1>Welcome,Mohamed Ahmed!</h1>
+            <p>Manage all tasks you've created and assigned to teachers.</p>
+        </div>
+        <div class="dashboard-task">
+            <div class="total-tasks">
+                <div class="logo-total-task">📋</div>
+                <div class="no-tasks">
+                    <h3>2</h3>
+                    <span>Total tasks</span>
+                </div>
+            </div>
+            <div class="tasks-pending">
+                <div class="logo-pending">⏳</div>
+                <div class="no-pending">
+                    <h3>2</h3>
+                    <span>Pending</span>
+                </div>
+            </div>
+            <div class="tasks-completed">
+                <div class="logo-completed">✅</div>
+                <div class="no-completed">
+                    <h3>1</h3>
+                    <span>Completed</span>
+                </div>
+            </div>
+        </div>
+        <div class="MyTask">
+            <div class="caption">
+                <h4>My Tasks</h4>
+                <a href="create_task.html">New Task</a>
+            </div>
+            <div class="task-search">
+                <form>
+                    <div class="search-input-wrapper">
+                        <input type="text" placeholder="Search by title or teacher">
+                    </div>
+                    <select>
+                        <option disabled selected>All Priorities</option>
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                    </select>
+                    <select>
+                        <option disabled selected>All Statuses</option>
+                        <option>Pending</option>
+                        <option>Completed</option>
+                    </select>
+                    <button type="submit" class="btn-filter">Filter</button>
+                    <button type="reset" class="btn-reset">Reset</button>
+                </form>
+            </div>
+            <div class="table-task">
+                <table>
+                <thead>
+                    <th>ID</th>
+                    <th>Task Title</th>
+                    <th>Assigned Teacher</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Created by</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#T001</td>
+                        <td>Math</td>
+                        <td>Sara</td>
+                        <td><span class="badge-priority badge-high">High</span></td>
+                        <td><span class="badge-status badge-pending">Pending</span></td>
+                        <td>Mohamed Ahmed</td>
+                        <td>
+                            <button type="button">✏️ Edit</button>
+                            <button type="reset">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#T002</td>
+                        <td>C++</td>
+                        <td>Sara</td>
+                        <td><span class="badge-priority badge-high">High</span></td>
+                        <td><span class="badge-status badge-pending">Pending</span></td>
+                        <td>Mohamed Ahmed</td>
+                        <td>
+                            <button type="button">✏️ Edit</button>
+                            <button type="reset">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#T003</td>
+                        <td>C++</td>
+                        <td>Sara</td>
+                        <td><span class="badge-priority badge-medium">Medium</span></td>
+                        <td><span class="badge-status badge-completed">Completed</span></td>
+                        <td>Mohamed Ahmed</td>
+                        <td>
+                            <button type="button">✏️ Edit</button>
+                            <button type="reset">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#T004</td>
+                        <td>C++</td>
+                        <td>Sara</td>
+                        <td><span class="badge-priority badge-low">Low</span></td>
+                        <td><span class="badge-status badge-pending">Pending</span></td>
+                        <td>Mohamed Ahmed</td>
+                        <td>
+                            <button type="button">✏️ Edit</button>
+                            <button type="reset">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
 
-            </tfoot>
-        </table>
-        <h2>Tasks are Craeted by you</h2>
-        <table border="1" cellpadding="10" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Title Task</th>
-                    <th>Teacher</th>
-                    <th>Craeted by</th>
-                    <th>Priority</th>
-                    <th>Status</th>
-                    <th>Date</th>
-                    <!-- I Will add information to colum after Create Delete/Edit -->
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>contest Sort</td>
-                    <td>Basher</td>
-                    <td>Mohamed Ahmed</td>
-                    <td>medium</td>
-                    <td>not completed</td>
-                    <td>2026-03-03</td>
-                    <td><a href="edit_task.html">edit</a>
-                        <a href="delete_task.html">delete</a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Lecture</td>
-                    <td>Namet</td>
-                    <td>Mohamed Ahmed</td>
-                    <td>low</td>
-                    <td>completed</td>
-                    <td>2026-03-03</td>
-                    <td><a href="edit_task.html">edit</a>
-                        <a href="delete_task.html">delete</a></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>assignment SWE</td>
-                    <td>EL Ramly</td>
-                    <td>Mohamed Ahmed</td>
-                    <td>low</td>
-                    <td>completed</td>
-                    <td>2026-03-03</td>
-                    <td><a href="edit_task.html">edit</a>
-                        <a href="delete_task.html">delete</a></td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="5">Total Tasks</td>
-                    <td>3</td>
-                </tr>
-            </tfoot>
-        </table>
-        <h2>Recently Tasks</h2>
-        <table border="1" cellpadding="10" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Title Task</th>
-                    <th>Teacher</th>
-                    <th>Craeted by</th>
-                    <th>Priority</th>
-                    <th>Status</th>
-                    <th>Date</th>
-                    <!-- I Will add information to colum after Create Delete/Edit -->
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>contest Sort</td>
-                    <td>Basher</td>
-                    <td>Kareem</td>
-                    <td>medium</td>
-                    <td>not completed</td>
-                    <td>2026-03-03</td>
-                    <td><a href="edit_task.html">edit</a>
-                        <a href="delete_task.html">delete</a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>assignment Web</td>
-                    <td>Namet</td>
-                    <td>Mohamed Ahmed</td>
-                    <td>low</td>
-                    <td>completed</td>
-                    <td>2026-03-03</td>
-                    <td><a href="edit_task.html">edit</a>
-                        <a href="delete_task.html">delete</a></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>assignment SWE</td>
-                    <td>EL Ramly</td>
-                    <td>Mohamed Ahmed</td>
-                    <td>low</td>
-                    <td>completed</td>
-                    <td>2026-03-03</td>
-                    <td><a href="edit_task.html">edit</a>
-                        <a href="delete_task.html">delete</a></td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="5">Total Tasks</td>
-                    <td>3</td>
-                </tr>
-            </tfoot>
-        </table>
-        
-        <br>
-        <footer>
-            <br> &copy; 2026 EduTask &nbsp;|&nbsp; IS231 Web Technology Project
-    </footer>
-    </center>
-    </body>
+</body>
 </html>

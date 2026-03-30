@@ -76,13 +76,7 @@ nav {
   color: var(--white);
   flex-shrink: 0;
 }
-/* added by sama */
-#spanteachername{
-    color: rgb(245, 158, 11);
-    background-color: rgba(245, 158, 11, 0.2);
-    border-radius: 20px;
-    padding: 10px;
-}
+
 .brand .logo-icon {
   width: 36px; height: 36px;
   background: var(--amber);
