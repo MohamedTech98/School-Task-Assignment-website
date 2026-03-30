@@ -5,20 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Tasks</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href=""
 </head>
-<body class="light">
+<body class="light" style="background-color: #f8fafc;">
     <nav >
         <a href="TeacherTasks.html" class="brand">
             <div class="logo-icon">📋</div>
             <span>EduTask</span>
         </a>
-        <ui class="nav-links">
-            <li><a href="Completed_tasks.html">Completed Tasks</a> </li> 
-            <li><a href="TeacherProfile.html">Profile</a> </li>     
+        <a href="TeacherProfile.html" style="margin-right: auto;">
+            <span id="spanteachername">Teachername</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="TeacherTasks.html"><span>📋</span><span>My Tasks</span></a> </li> 
+            <li><a href="Completed_tasks.html"><span>✅</span><span>Completed Tasks</span> </a> </li>     
             <li><a href="index.html" style="color: red;">Logout</a></li>
-        </ui>        
-    </nav >       
-    <center>
+        </ul>        
+    </nav > 
+    <div style="margin-right: 5%;">
+        <div>
+    <h1 id="mytasks">My Tasks</h1>  
+    <p id="pwelcomemsg">Welcome back, Teachername! Here are your assigned tasks.</p>
+        </div> <br><br>
+        <div id="firsttotalcards">
+            
+            <div class="divbeforespanwritingcards">
+                <span style="background-color: #fef3c7;padding: 6px;">📋</span>
+                <span class="scounts">0</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="spanwritingsincards">Total Assigned</span>
+            </div>
+            <div class="divbeforespanwritingcards">
+                <span style="background-color: #fee2e2;padding: 6px;">⏳</span>
+                <span class="scounts">0</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="spanwritingsincards">Pending</span>
+            </div>
+            <div class="divbeforespanwritingcards">
+                <span style="background-color: #dcfce7;padding: 6px;">✅</span>
+                <span class="scounts">0</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="spanwritingsincards">Completed</span>
+            </div>
+            <div class="divbeforespanwritingcards">
+                <span style="background-color: #e0e7ff;padding: 6px;">🔴</span>
+                <span class="scounts">0</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="spanwritingsincards">High Priority</span>
+            </div>
+        </div><br><br>  
+        <div id="tasksearch">
+            <div style="display: flex;justify-content: space-between;">
+                <div>
+                     <h2 style="font-size: 16px;font-weight: 600;padding:25px">📋 Assigned Tasks</h2>
+               </div>
+                <a href="Completed_tasks.html"><button id="viewcompletedbutton">✅ View Completed</button></a>
+            </div>
+            <div></div>
+        </div>
+    <!-- <center>
         <table border="1" cellpadding="10" cellspacing="0" width="100%">
             <thead>
                 <tr>
@@ -87,7 +129,7 @@
                     <td><a href="task_details.html"><button type="button">View details</button></a></td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
         
 
     <!-- <div >
@@ -162,11 +204,11 @@
             <button type="button" style="height: 40px;width: 130px;box-shadow: 0 4px 6px;border-radius: 7px;color: white  ;background-color: #003366 ;font-size: medium;">View details</button>
         </ul>
     </div><br><br><br><br> -->
-    <br><br><br><br><br><br><br><br><br>
+    <!-- <br><br><br><br><br><br><br><br><br>
     <footer>
        <br> &copy; 2026 EduTask &nbsp;|&nbsp; IS231 Web Technology Project
     </footer>
-    </center>
-    
+    </center> -->
+    </div> 
 </body>
 </html>
