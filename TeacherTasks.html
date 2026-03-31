@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Tasks</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style1.css">
-    <link rel="stylesheet" href=""
 </head>
+
 <body class="light">
-    <nav >
+    <nav>
         <a href="TeacherTasks.html" class="brand">
             <div class="logo-icon">📋</div>
             <span>EduTask</span>
@@ -18,208 +19,80 @@
             <span id="spanteachername">Teachername</span>
         </a>
         <ul class="nav-links">
-            <li><a href="TeacherTasks.html"><span>📋</span><span>My Tasks</span></a> </li> 
-            <li><a href="Completed_tasks.html"><span>✅</span><span>Completed Tasks</span> </a> </li>     
+            <li><a href="TeacherTasks.html"><span>📋</span><span>My Tasks</span></a> </li>
+            <li><a href="Completed_tasks.html"><span>✅</span><span>Completed Tasks</span> </a> </li>
             <li><a href="index.html" style="color: red;">Logout</a></li>
-        </ul>        
-    </nav > 
-    <div style="margin-right: 5%;">
-        <div>
-    <h1 id="mytasks">My Tasks</h1>  
-    <p id="pwelcomemsg">Welcome back, Teachername! Here are your assigned tasks.</p>
-        </div> <br><br>
-        <div id="firsttotalcards">
-            
-            <div class="divbeforespanwritingcards">
-                <span style="background-color: #fef3c7;padding: 6px;">📋</span>
-                <span class="scounts">0</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="spanwritingsincards">Total Assigned</span>
-            </div>
-            <div class="divbeforespanwritingcards">
-                <span style="background-color: #fee2e2;padding: 6px;">⏳</span>
-                <span class="scounts">0</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="spanwritingsincards">Pending</span>
-            </div>
-            <div class="divbeforespanwritingcards">
-                <span style="background-color: #dcfce7;padding: 6px;">✅</span>
-                <span class="scounts">0</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="spanwritingsincards">Completed</span>
-            </div>
-            <div class="divbeforespanwritingcards">
-                <span style="background-color: #e0e7ff;padding: 6px;">🔴</span>
-                <span class="scounts">0</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="spanwritingsincards">High Priority</span>
-            </div>
-        </div><br><br>  
-        <div id="tasksearch">
-            <div id="headeroftasksearch">
+        </ul>
+    </nav>
+    <div class="page">
+
+        <div class="page-header fade-up">
+            <h1>My Tasks</h1>
+            <p id="pwelcomemsg">Welcome back, Teachername! Here are your assigned tasks.</p>
+        </div>
+
+        <div class="firsttotalcards fade-up-2">
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon amber">📋</div>
                 <div>
-                     <h2 style="font-size: 16px;font-weight: 600;">📋 Assigned Tasks</h2>
-               </div>
-                <a href="Completed_tasks.html"><button id="viewcompletedbutton" style="font-weight: 600;">✅ View Completed</button></a>
+                    <div class="scounts">0</div>
+                    <div class="stat-label">Total Assigned</div>
+                </div>
             </div>
-            <div id="bodyoftasksearch">
-                <div id="searchbar">
-                    <select id="filterpriority">
-                        <option value=""disabled selected hidden >🔍Filter by Priority</option>
-                        <option value="High" >🔴High</option>
-                        <option value="Medium">🟡Medium</option>
-                        <option value="Low">🟢Low</option>
-                    </select>
-                    <button id="searchbutton">Search</button>
-                    <button id="rebutton">Reset</button>
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon red">⏳</div>
+                <div>
+                    <div class="scounts">0</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+            </div>
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon green">✅</div>
+                <div>
+                    <div class="scounts">0</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+            </div>
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon navy">🔴</div>
+                <div>
+                    <div class="scounts">0</div>
+                    <div class="stat-label">High Priority</div>
                 </div>
             </div>
         </div>
-    <!-- <center>
-        <table border="1" cellpadding="10" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Priority</th>
-                    <th>Status</th>
-                    <th>Details</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Prepare Math Quiz</td>
-                    <td>High</td>
-                    <td>Pending</td>
-                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Science Lab Preparation</td>
-                    <td>Medium</td>
-                    <td>Pending</td>
-                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>English Essay Correction</td>
-                    <td>Low</td>
-                    <td>Pending</td>
-                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Parent Meeting Schedule</td>
-                    <td>High</td>
-                    <td>Pending</td>
-                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Update Student Attendance</td>
-                    <td>Medium</td>
-                    <td>Pending</td>
-                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Prepare Presentation Slides</td>
-                    <td>Low</td>
-                    <td>Pending</td>
-                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Review Homework Assignments</td>
-                    <td>Medium</td>
-                    <td>Pending</td>
-                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
-                </tr>
-                    <tr>
-                    <td>8</td>
-                    <td>Organize School Event</td>
-                    <td>High</td>
-                    <td>Pending</td>
-                    <td><a href="task_details.html"><button type="button">View details</button></a></td>
-                </tr>
-            </tbody>
-        </table> -->
-        
 
-    <!-- <div >
-        <ul><br><br><br>
-            <li><strong>ID:</strong> 1</li>
-            <li><strong>Title:</strong> Prepare Math Quiz</li>
-            <li><strong>Priority:</strong><span > High</span></li>
-            <li><strong>Status:</strong> Pending</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button">View details</button>
-        </ul>
-    </div><br><br>
-        <div style="background-color:rgba(255, 255, 255, 0.9) ;font-size: larger;margin-left: 360px;height: 220px;margin-right: 420px;box-shadow: 0 2px 4px;border-radius: 20px;">
-        <ul style="list-style-type: none; margin-left: 0px;margin-top: 10px; color: black;"><br><br><br>
-            <li><strong>ID:</strong> 2</li>
-            <li><strong>Title:</strong> Science Lab Preparation</li>
-            <li><strong>Priority:</strong><span style="background-color: #F1C40F;">Medium</span> </li>
-            <li><strong>Status:</strong> Pending</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" style="height: 40px;width: 130px;box-shadow: 0 4px 6px;border-radius: 7px;color: white  ;background-color: #003366 ;font-size: medium;">View details</button>
-        </ul>
-    </div><br><br>
-        <div style="background-color:rgba(255, 255, 255, 0.9) ;font-size: larger;margin-left: 360px;height: 220px;margin-right: 420px;box-shadow: 0 2px 4px;border-radius: 20px;">
-        <ul style="list-style-type: none; margin-left: 0px;margin-top: 10px;color: black;"><br><br><br>
-            <li><strong>ID:</strong> 3</li>
-            <li><strong>Title:</strong> English Essay Correction</li>
-            <li><strong>Priority:</strong><span style="background-color: #2ECC71;"> Low</span></li>
-            <li><strong>Status:</strong> Pending</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" style="height: 40px;width: 130px;box-shadow: 0 4px 6px;border-radius: 7px;color: white  ;background-color: #003366 ;font-size: medium;">View details</button>
-        </ul>
-    </div><br><br>
-        <div style="background-color:rgba(255, 255, 255, 0.9) ;font-size: larger;margin-left: 360px;height: 220px;margin-right: 420px;box-shadow: 0 2px 4px;border-radius: 20px;">
-        <ul style="list-style-type: none; margin-left: 0px;margin-top: 10px;color: black;"><br><br><br>
-            <li><strong>ID:</strong> 4</li>
-            <li><strong>Title:</strong> Parent Meeting Schedule</li>
-            <li><strong>Priority:</strong><span style="background-color: #E74C3C;"> High</span></li>
-            <li><strong>Status:</strong> Pending</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" style="height: 40px;width: 130px;box-shadow: 0 4px 6px;border-radius: 7px;color: white  ;background-color: #003366 ;font-size: medium;">View details</button>
-        </ul>
-    </div><br><br>
-        <div style="background-color:rgba(255, 255, 255, 0.9) ;font-size: larger;margin-left: 360px;height: 220px;margin-right: 420px;box-shadow: 0 2px 4px;border-radius: 20px;">
-        <ul style="list-style-type: none; margin-left: 0px;margin-top: 10px;color: black;"><br><br><br>
-            <li><strong>ID:</strong> 5</li>
-            <li><strong>Title:</strong> Update Student Attendance</li>
-            <li><strong>Priority:</strong><span style="background-color: #F1C40F;">Medium</span></li>
-            <li><strong>Status:</strong> Pending</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" style="height: 40px;width: 130px;box-shadow: 0 4px 6px;border-radius: 7px;color: white  ;background-color: #003366 ;font-size: medium;">View details</button>
-        </ul>
-    </div><br><br>
-        <div style="background-color:rgba(255, 255, 255, 0.9) ;font-size: larger;margin-left: 360px;height: 220px;margin-right: 420px;box-shadow: 0 2px 4px;border-radius: 20px;">
-        <ul style="list-style-type: none; margin-left: 0px;margin-top: 10px;color: black;"><br><br><br>
-            <li><strong>ID:</strong> 6</li>
-            <li><strong>Title:</strong> Prepare Presentation Slides</li>
-            <li><strong>Priority:</strong><span style="background-color: #2ECC71;"> Low</span></li>
-            <li><strong>Status:</strong> Pending</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" style="height: 40px;width: 130px;box-shadow: 0 4px 6px;border-radius: 7px;color: white  ;background-color: #003366 ;font-size: medium;">View details</button>
-        </ul>
-    </div><br><br>
-        <div style="background-color:rgba(255, 255, 255, 0.9) ;font-size: larger;margin-left: 360px;height: 220px;margin-right: 420px;box-shadow: 0 2px 4px;border-radius: 20px;">
-        <ul style="list-style-type: none; margin-left: 0px;margin-top: 10px;color: black;"><br><br><br>
-            <li><strong>ID:</strong> 7</li>
-            <li><strong>Title:</strong> Review Homework Assignments</li>
-            <li><strong>Priority:</strong><span style="background-color: #F1C40F;">Medium</span></li>
-            <li><strong>Status:</strong> Pending</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" style="height: 40px;width: 130px;box-shadow: 0 4px 6px;border-radius: 7px;color: white  ;background-color: #003366 ;font-size: medium;">View details</button>
-        </ul>
-    </div><br><br>
-        <div style="background-color:rgba(255, 255, 255, 0.9) ;font-size: larger;margin-left: 360px;height: 220px;margin-right: 420px;box-shadow: 0 2px 4px;border-radius: 20px;">
-        <ul style="list-style-type: none; margin-left: 0px;margin-top: 10px;color: black;"><br><br><br>
-            <li><strong>ID:</strong> 8</li>
-            <li><strong>Title:</strong> Organize School Event</li>
-            <li><strong>Priority:</strong><span style="background-color: #E74C3C;"> High</span></li>
-            <li><strong>Status:</strong> Pending</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" style="height: 40px;width: 130px;box-shadow: 0 4px 6px;border-radius: 7px;color: white  ;background-color: #003366 ;font-size: medium;">View details</button>
-        </ul>
-    </div><br><br><br><br> -->
-    <!-- <br><br><br><br><br><br><br><br><br>
-    <footer>
-       <br> &copy; 2026 EduTask &nbsp;|&nbsp; IS231 Web Technology Project
-    </footer>
-    </center> -->
-    </div> 
+        <div class="card fade-up-3">
+            <div class="card-header">
+                <h2>📋 Assigned Tasks</h4>
+                    <a href="Completed_tasks.html" class="btn btn-outline btn-sm">✅ View Completed</a>
+            </div>
+
+            <div class="card-body">
+
+                <!-- Search -->
+                <div class="search-bar">
+                    <select id="filter-priority">
+                        <option value="" disabled selected hidden>🔍Filter by Priority</option>
+                        <option value="High">🔴High</option>
+                        <option value="Medium">🟡Medium</option>
+                        <option value="Low">🟢Low</option>
+                    </select>
+                    <button class="btn btn-primary btn-sm" id="searchbutton">Search</button>
+                    <button class="btn btn-outline btn-sm" id="rebutton">Reset</button>
+                </div>
+
+                <!-- Alert -->
+                <div id="alert-box"></div>
+
+                <div class="empty-state" id="empty-state" style="display:none;">
+                    <div class="icon">📭</div>
+                    <h3>No tasks assigned to you</h3>
+                    <p>Check back later or contact your admin.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
