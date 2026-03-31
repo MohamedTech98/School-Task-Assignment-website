@@ -1,144 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="style_task.css">
 </head>
-<body>
-    <div class="container">
-        <div class="navBar">
-            <nav >
-            <a href="dashboard.html" class="brand">
-                <div class="logo-icon">📋</div>
-                <span>EduTask</span>
-            </a>
-            <ui class="nav-links">
-                <li><a href="create_task.html">Create Task</a> </li>   
-                <li><a href="all_task.html">All Tasks</a> </li>  
-                <li><a href="index.html" style="color: red;">Logout</a></li>
-            </ui>        
-        </nav > 
-        </div>
-        <div class="welcome-admin">
+
+<body class="light">
+    <nav>
+        <a href="dashboard.html" class="brand">
+            <div class="logo-icon">📋</div>
+            <span>EduTask</span>
+        </a>
+        <a href="TeacherProfile.html" style="margin-right: auto;">
+            <span id="spanteachername">Teachername</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="all_task.html">📊 All Tasks</a> </li>
+            <li><a href="create_task.html">➕ Create Task</a> </li>
+            <li><a href="index.html" style="color: red;">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="page">
+
+        <div class="page-header fade-up">
             <h1>Welcome,Mohamed Ahmed!</h1>
             <p>Manage all tasks you've created and assigned to teachers.</p>
         </div>
-        <div class="dashboard-task">
-            <div class="total-tasks">
-                <div class="logo-total-task">📋</div>
-                <div class="no-tasks">
-                    <h3>2</h3>
-                    <span>Total tasks</span>
+
+        <div class="firsttotalcards fade-up-2">
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon amber">📋</div>
+                <div>
+                    <div class="scounts">0</div>
+                    <div class="stat-label">Total tasks</div>
                 </div>
             </div>
-            <div class="tasks-pending">
-                <div class="logo-pending">⏳</div>
-                <div class="no-pending">
-                    <h3>2</h3>
-                    <span>Pending</span>
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon red">⏳</div>
+                <div>
+                    <div class="scounts">0</div>
+                    <div class="stat-label">Pending</div>
                 </div>
             </div>
-            <div class="tasks-completed">
-                <div class="logo-completed">✅</div>
-                <div class="no-completed">
-                    <h3>1</h3>
-                    <span>Completed</span>
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon green">✅</div>
+                <div>
+                    <div class="scounts">0</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+            </div>
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon navy">🔴</div>
+                <div>
+                    <div class="scounts">0</div>
+                    <div class="stat-label">High Priority</div>
                 </div>
             </div>
         </div>
-        <div class="MyTask">
-            <div class="caption">
-                <h4>My Tasks</h4>
-                <a href="create_task.html">New Task</a>
+
+        <div class="card fade-up-3">
+            <div class="card-header">
+                <h2>My Tasks</h4>
+                    <a href="create_task.html" class="btn btn-primary btn-sm">+ New Task</a>
             </div>
-            <div class="task-search">
-                <form>
-                    <div class="search-input-wrapper">
-                        <input type="text" placeholder="Search by title or teacher">
+
+            <div class="card-body">
+
+                <!-- Search -->
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="🔍  Search by title or teacher name…" />
+
+                    <select id="filter-priority">
+                        <option value="">All Priorities</option>
+                        <option value="high">🔴 High</option>
+                        <option value="medium">🟡 Medium</option>
+                        <option value="low">🟢 Low</option>
+                    </select>
+                    <select id="filter-status">
+                        <option value="">All Statuses</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                    <button class="btn btn-outline btn-sm" onclick="applyFilters()">Filter</button>
+                    <button class="btn btn-outline btn-sm" onclick="resetFilters()">Reset</button>
+                </div>
+
+                <!-- Alert -->
+                <div id="alert-box"></div>
+
+                <!-- Table -->
+                <div id="task-table-wrapper">
+                    <table id="task-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Task Title</th>
+                                <th>Assigned Teacher</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Created By</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="task-tbody"></tbody>
+                    </table>
+                    <div class="empty-state" id="empty-state" style="display:none;">
+                        <div class="icon">📭</div>
+                        <h3>No tasks found</h3>
+                        <p>Create your first task to get started.</p>
+                        <a href="create_task.html" class="btn btn-primary" style="margin-top:1rem;">+ New Task</a>
                     </div>
-                    <select>
-                        <option disabled selected>All Priorities</option>
-                        <option>Low</option>
-                        <option>Medium</option>
-                        <option>High</option>
-                    </select>
-                    <select>
-                        <option disabled selected>All Statuses</option>
-                        <option>Pending</option>
-                        <option>Completed</option>
-                    </select>
-                    <button type="submit" class="btn-filter">Filter</button>
-                    <button type="reset" class="btn-reset">Reset</button>
-                </form>
-            </div>
-            <div class="table-task">
-                <table>
-                <thead>
-                    <th>ID</th>
-                    <th>Task Title</th>
-                    <th>Assigned Teacher</th>
-                    <th>Priority</th>
-                    <th>Status</th>
-                    <th>Created by</th>
-                    <th>Actions</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>#T001</td>
-                        <td>Math</td>
-                        <td>Sara</td>
-                        <td><span class="badge-priority badge-high">High</span></td>
-                        <td><span class="badge-status badge-pending">Pending</span></td>
-                        <td>Mohamed Ahmed</td>
-                        <td>
-                            <button type="button">✏️ Edit</button>
-                            <button type="reset">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#T002</td>
-                        <td>C++</td>
-                        <td>Sara</td>
-                        <td><span class="badge-priority badge-high">High</span></td>
-                        <td><span class="badge-status badge-pending">Pending</span></td>
-                        <td>Mohamed Ahmed</td>
-                        <td>
-                            <button type="button">✏️ Edit</button>
-                            <button type="reset">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#T003</td>
-                        <td>C++</td>
-                        <td>Sara</td>
-                        <td><span class="badge-priority badge-medium">Medium</span></td>
-                        <td><span class="badge-status badge-completed">Completed</span></td>
-                        <td>Mohamed Ahmed</td>
-                        <td>
-                            <button type="button">✏️ Edit</button>
-                            <button type="reset">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#T004</td>
-                        <td>C++</td>
-                        <td>Sara</td>
-                        <td><span class="badge-priority badge-low">Low</span></td>
-                        <td><span class="badge-status badge-pending">Pending</span></td>
-                        <td>Mohamed Ahmed</td>
-                        <td>
-                            <button type="button">✏️ Edit</button>
-                            <button type="reset">Delete</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                </div>
             </div>
         </div>
     </div>
 
+
 </body>
+
 </html>
