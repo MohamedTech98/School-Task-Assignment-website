@@ -1,104 +1,93 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>All Tasks</title>
-        <meta charset = "utf-8" />
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body class="light">
-        <nav >
-            <a href="Dashboard.html" class="brand">
-                <div class="logo-icon">📋</div>
-                <span>EduTask</span>
-            </a>
-            <ui class="nav-links">
-               <li><a href="all_task.html">All Tasks</a> </li> 
-               <li><a href="create_task.html">Create Task</a> </li>     
-               <li><a href="index.html" style="color: red;">Logout</a></li>
-           </ui>        
-        </nav >            
-    <center>
-        <h1>All Tasks</h1>
-        <table border="1" cellpadding="10" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Title Task</th>
-                    <th>Teacher</th>
-                    <th>Craeted by</th>
-                    <th>Priority</th>
-                    <th>Status</th>
-                    <th>Date</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td><a href="Task_details.html" target="_blank" >contest Sort</a></td>
-                    <td>Basher</td>
-                    <td>Mohamed Ahmed</td>
-                    <td>medium</td>
-                    <td>not completed</td>
-                    <td>2026-03-03</td>
-                    <td><a href="edit_task.html">edit</a>
-                        <a href="delete_task.html">delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><a href="Task_details.html" target="_blank" >assignment Web</a></td>
-                        <td>Namet</td>
-                        <td>Mohamed Ahmed</td>
-                        <td>low</td>
-                        <td>completed</td>
-                        <td>2026-03-03</td>
-                        <td><a href="edit_task.html">edit</a>
-                            <a href="delete_task.html">delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><a href="Task_details.html" target="_blank" >assignment SWE</a></td>
-                            <td>EL Ramly</td>
-                            <td>Mohamed Ahmed</td>
-                            <td>low</td>
-                            <td>completed</td>
-                            <td>2026-03-03</td>
-                            <td><a href="edit_task.html">edit</a>
-                                <a href="delete_task.html">delete</a></td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="5">Total Tasks</td>
-                    <td>3</td>
-                </tr>
-            </tfoot>
-        </table>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <!-- <br>
-        <br>
-        <br>
-        <br> -->
-        <footer>
-            <br> &copy; 2026 EduTask &nbsp;|&nbsp; IS231 Web Technology Project
-    </footer>
-    </center>
-    </body>
+
+<head>
+    <title>All Tasks</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body class="light">
+    <nav>
+        <a href="dashboard.html" class="brand">
+            <div class="logo-icon">📋</div>
+            <span>EduTask</span>
+        </a>
+        <a href="TeacherProfile.html" style="margin-right: auto;">
+            <span id="spanteachername">Teachername</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="all_task.html">📊 All Tasks</a> </li>
+            <li><a href="create_task.html">➕ Create Task</a> </li>
+            <li><a href="index.html" style="color: red;">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="page">
+
+        <div class="page-header fade-up">
+            <h1>All Tasks</h1>
+            <p>All tasks we've created and assigned to teachers.</p>
+        </div>
+
+        <div class="card fade-up-3">
+            <div class="card-header">
+                <h2>My Tasks</h4>
+                    <a href="create_task.html" class="btn btn-primary btn-sm">+ New Task</a>
+            </div>
+
+            <div class="card-body">
+
+                <!-- Search -->
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="🔍  Search by title or teacher name…" />
+
+                    <select id="filter-priority">
+                        <option value="">All Priorities</option>
+                        <option value="high">🔴 High</option>
+                        <option value="medium">🟡 Medium</option>
+                        <option value="low">🟢 Low</option>
+                    </select>
+                    <select id="filter-status">
+                        <option value="">All Statuses</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                    <button class="btn btn-outline btn-sm" onclick="applyFilters()">Filter</button>
+                    <button class="btn btn-outline btn-sm" onclick="resetFilters()">Reset</button>
+                </div>
+
+                <!-- Alert -->
+                <div id="alert-box"></div>
+
+                <!-- Table -->
+                <div id="task-table-wrapper">
+                    <table id="task-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Task Title</th>
+                                <th>Assigned Teacher</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Created By</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="task-tbody"></tbody>
+                    </table>
+                    <div class="empty-state" id="empty-state" style="display:block;">
+                        <div class="icon">📭</div>
+                        <h3>No tasks found</h3>
+                        <p>Create your first task to get started.</p>
+                        <a href="create_task.html" class="btn btn-primary" style="margin-top:1rem;">+ New Task</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
