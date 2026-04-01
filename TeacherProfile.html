@@ -5,21 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
 </head>
 <body class="light">
-    <nav >
+    <nav>
         <a href="TeacherTasks.html" class="brand">
             <div class="logo-icon">📋</div>
             <span>EduTask</span>
         </a>
-        <ui class="nav-links">
-            <li><a href="Completed_tasks.html">Completed Tasks</a> </li> 
-            <li><a href="TeacherProfile.html">Profile</a> </li>     
+        <a href="TeacherProfile.html" style="margin-right: auto;">
+            <span id="spanteachername">Teachername</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="TeacherTasks.html"><span>📋</span><span>My Tasks</span></a> </li>
+            <li><a href="Completed_tasks.html"><span>✅</span><span>Completed Tasks</span> </a> </li>
             <li><a href="index.html" style="color: red;">Logout</a></li>
-        </ui>        
-    </nav >          
+        </ul>
+    </nav> 
+    <div class="page">
+        <div class="page-header fade-up">
+            <h1>My Profile-EduTask</h1>
+        </div>
+        <div style="display: flex;">
+            <div class="leftsection">
+                <div style="display: flex;justify-content: space-between;">
+                    <h2>👤Personal Information</h2>
+                    <button class="btn btn-outline btn-sm" id="rebutton">✏️Edit Profile</button>
+                </div><br>
+                <!-- <div>
+                    <img src="banner.png" alt="banner" style="height: 120px;width: 100%;padding: none;">
+                </div> -->
+                <center>
+                    <h1 id="teachern">Sara Ahmed</h1>
+                    <p>Senior English Teacher</p>
+                </center><br>
+                <div id="forrm">
+                    <form id="profileform">
+                        <div>
+                            <Label for="firstname" class="fnameandemail">First Name</Label>
+                            <label for="lastname" class="lnameandspec">Last Name</label><br>
+                            <input type="text" id="firstname" name="firstname" value="Sara" readonly required>
+                            <input type="text" id="lastname" name="lastname" value="Ahmed" readonly required><br>
+                        </div><br><br>
+                        <div>
+                            <label for="email" class="fnameandemail">Email</label>
+                            <label for="specialization" class="lnameandspec" style="margin-left: 25%;">Specialization</label><br>
+                            <input type="email" id="email" name="email" value="sara@school.edu" readonly>
+                            <input type="text" id="specialization" name="specialization" value="English Literature" readonly required />
+                        </div>
+                    </form>
+                </div><br><br><br><hr><br><br>
+                <div id="savechanges">
+                <button class="viewdetailsbutton">💾 Save Changes</button>&nbsp;
+                <button class="btn btn-outline btn-sm">Cancel</button>
+                </div>
+            </div>
+            <div id="rightsection">
+                <div id="topofright" st>
+                    <h2>📊My Status Overview</h2>
+                </div><br>
+                <div id="rightsectionbody">
+                    <span style="font-weight: 500;">✅Total Tasks Completed</span><span id="totaltaskscompleted">45</span><br><br>
+                    <span style="font-weight: 500;">📋Current Tasks</span><span id="currenttasks">8</span><br><br>
+                    <span style="font-weight: 500;">🏆Completion Rate</span><span id="completionrate">96%</span>
+                </div>
+
+            </div>
+        </div>
+    </div>        
         
-    <center>
+    <!-- <center>
         <img src="Teacher.png" alt="Teacher" width="15%" height="15%"><br><br>
         <table border="1" cellpadding="10" cellspacing="0" width="40%">
             <tr>
@@ -47,7 +102,7 @@
                 <td>10 Years Teaching Mathematics</td>
             </tr>
         </table><br><br>
-        <button type="button">Edit Profile</button> <br><br><br><br>
+        <button type="button">Edit Profile</button> <br><br><br><br> -->
 
         <!-- <div >
             <div>
@@ -86,9 +141,9 @@
                 </ul>
             </div>
         </div><br><br> -->
-            <footer>
+            <!-- <footer>
        <br> &copy; 2026 EduTask &nbsp;|&nbsp; IS231 Web Technology Project
     </footer>
-    </center>
+    </center> -->
 </body>
 </html>

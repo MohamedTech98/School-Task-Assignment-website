@@ -318,7 +318,7 @@ tbody td {
     color: #94a3b8;
 }
 .headerofcard{
-        margin-left: 5%;
+    margin-left: 5%;
     justify-content: space-between;
     display: flex;
     justify-content: space-between;
@@ -336,7 +336,7 @@ color:#475569;
 margin-bottom:12px;
 margin-left: 5%;
 }
-#viewdetailsbutton{
+.viewdetailsbutton{
     padding: 6px 14px;
     font-size: 13px;
     background-color: #0f172a;
@@ -346,6 +346,9 @@ margin-left: 5%;
     font-weight: 600;
     transition: 0.2s;
     margin-left: 5%;
+}
+.viewdetailsbutton:hover{
+    background-color: #020617;
 }
 #completebutton{
         padding: 6px 14px;
@@ -358,5 +361,73 @@ margin-left: 5%;
     transition: 0.2s;
 }
 
+.leftsection{
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px;
+    height: 500px;
+    /* margin-bottom: 22px; */
+    padding: 25px;
+    width: 820px;
+}
+.fnameandemail{
+margin-right: 19%;
+}
+.lnameandspec{
+margin-left: 18%;
+}
+#lastname{  
+ width: 30%;
+ height: 30px;
+ font-size: 16px;
+}
+#firstname{
+ margin-right: 20%;   
+  width: 30%;
+ height: 30px;
+  font-size: 16px;
+}
+#email{
+  margin-right: 20%; 
+   width: 30%;
+  height: 30px;
+   font-size: 16px;
+}
+#specialization{
+    width: 30%;
+   height: 30px;
+    font-size: 16px;
+}
+#savechanges{
+    margin-left: 29%;
+}
+#rightsection{
+        background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px;
+    height: 250px;
+    /* margin-bottom: 22px; */
+    padding: 25px;
+    width: 380px;
+    margin-left: 5%;
+}
+#totaltaskscompleted{
+margin-left: 18%;
+font-weight: 600;
+font-size: 20px;
+}
+#currenttasks{
+margin-left: 45%;
+font-weight: 600;
+font-size: 20px;
 
+}
+#completionrate{
+margin-left: 29%;
+font-weight: 600;
+font-size: 20px;
+
+}
 
