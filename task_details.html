@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Details</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
 </head>
-<body class="light">
 
-   <nav >
+<body class="light">
+    <nav >
         <a href="TeacherTasks.html" class="brand">
             <div class="logo-icon">📋</div>
             <span>EduTask</span>
@@ -21,73 +22,55 @@
     </nav >      
 
     <!-- Task Details -->
-    <div>
-        <div>
-            <h2 align="center">Task Details</h2>
-            
-            <table cellpadding="10" align="center">
-                <tr>
-                    <td><strong>ID:</strong></td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td><strong>Title:</strong></td>
-                    <td>Prepare Math Quiz</td>
-                </tr>
-                <tr>
-                    <td><strong>Teacher:</strong></td>
-                    <td>Laila Mahmoud</td>
-                </tr>
-                <tr>
-                    <td><strong>Priority:</strong></td>
-                    <td>High</td>
-                </tr>
-                <tr>
-                    <td><strong>Status:</strong></td>
-                    <td>Pending</td>
-                </tr>
-            </table>
+    <div class="page">
 
-            <hr width="50%">
+    <div class="page-header">
+        <h1>Task Details</h1>
+        <p>Full information about the selected task.</p>
+    </div>
 
-            <div align="center">
-                <h3>Description:</h3>
+    <div class="card task-details-card">
+        <div class="card-body">
+
+            <div class="task-meta">
+                <span class="priority priority-high">High</span>
+                <span class="task-id">#T001</span>
+            </div>
+
+            <h2 class="task-title">Grade Mid-Term Papers</h2>
+
+            <div class="task-info">
+                <p><strong>Teacher:</strong>Sarah Ahmed</p>
+                <p><strong>Status:</strong> Pending</p>
+            </div>
+
+            <div class="task-description">
+                <h3>Description</h3>
                 <p>
-                    Prepare a short quiz for grade 8 students covering algebra basics.<br>
-                    The quiz should include 10 questions and be ready before Monday.
+                    Grade all mid-term exam papers for Grade 10 students carefully and accurately.<br>
+                    Ensure that each paper is reviewed based on the marking scheme provided.<br>
+                    Record the final scores in the system and verify all entries to avoid errors.<br>
+                    The results should be completed and submitted before the deadline (Friday).<br>
+                    If any discrepancies or unclear answers are found, report them to the administration for clarification.
                 </p>
             </div>
 
-            <!-- Update Status Form -->
-            <form>
-                <fieldset align="center">
-                    <legend>Update Status</legend>
-                    <table align="center">
-                        <tr>
-                            <td><label for="status">Select Status:</label></td>
-                            <td>
-                                <select id="status" name="status">
-                                    <option value="pending">Pending</option>
-                                    <option value="completed">Completed</option>
-                                </select>
-                            </td>
-                            <td>
-                                <button type="submit">Update</button>
-                            </td>
-                        </tr>
-                    </table>
-                </fieldset>
-            </form>
+            <div class="update-section">
+                <h3>Update Status</h3>
+                <select id="status">
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
 
-            <br>
-            <div align="center">
-                <a href="TeacherTasks.html"><strong>&lt;= Back to My Tasks</strong></a>
+                <button class="btn btn-primary">Update</button>
             </div>
+
+            <div class="back-link">
+                <a href="TeacherTasks.html">⬅ Back to My Tasks</a>
+            </div>
+
         </div>
     </div>
-
-    <br><br>
-    <hr>
 
     <!-- Footer -->
     <footer align="center">

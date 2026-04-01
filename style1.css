@@ -428,6 +428,126 @@ font-size: 20px;
 margin-left: 29%;
 font-weight: 600;
 font-size: 20px;
-
 }
 
+/* -------- TASK DETAILS PAGE -------- */
+#viewdetailsbutton{
+    padding: 6px 14px;
+    font-size: 13px;
+    background-color: #23355f;
+    color: #ffffff;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+}
+
+.task-details-card {
+    max-width: 800px;
+    margin: auto;
+}
+
+.task-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.task-id {
+    font-size: 13px;
+    color: #4e555d;
+}
+
+.task-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--navy);
+}
+
+.task-info p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #40464d;
+}
+
+.task-description {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgb(224, 233, 245);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+.task-description h3 {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.task-description p {
+    font-size: 14px;
+    color: #323b49;
+    line-height: 1.6;
+}
+
+/* Priority styles */
+.priority {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.priority-high {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.priority-medium {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.priority-low {
+    background: #dcfce7;
+    color: #166534;
+}
+
+/* Update section */
+.update-section {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.update-section h3 {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.update-section select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    outline: none;
+}
+
+.back-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.back-link a {
+    text-decoration: none;
+    color: var(--navy);
+    font-weight: 600;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--navy);
+    color: rgb(97, 107, 195);
+}
