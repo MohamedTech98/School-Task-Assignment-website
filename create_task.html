@@ -1,56 +1,123 @@
 <html>
-    <head>
-        <title>Create Tasks</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body class="light">
-        <nav >
-            <a href="Dashboard.html" class="brand">
-                <div class="logo-icon">📋</div>
-                <span>EduTask</span>
-            </a>
-            <ui class="nav-links">
-                <li><a href="create_task.html">Create Task</a> </li>   
-                <li><a href="all_task.html">All Tasks</a> </li>  
-                <li><a href="index.html" style="color: red;">Logout</a></li>
-            </ui>        
-        </nav >     
-        <form>
-            <table>
-                <tbody>
-                    <tr>
-                        <td><label for="ID">Task ID</label></td>
-                        <td><input type="number" id="ID" name="ID"/></td>
-                    </tr>
-                    <tr>
-                        <td><label for="name">Task Name</label></td>
-                        <td><input type="text" id="name" name="task name"/></td>
-                    </tr>
-                    <tr>
-                        <td><label for="teacher name">Teacher Name</label></td>
-                        <td><input type="text" id="teacher name" name="teacher name"></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <select name="Difficulity" id="difficulity">
-                                <option value="h" id="high">High</option>
-                                <option value="m" id="medium">Medium</option>
-                                <option value="e" id="easy">Easy</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label for="description">Description</label></td>
-                        <td><input type="text" id="description" name="des"/></td>
-                    </tr>
-                    <tr>
-                        <td><button type="submit">Add Task</button></td>
-                        <td><button type="reset">Reset</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </form>
-        
-    </body>
+
+<head>
+    <title>Create Tasks</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="createTask_editTask.css">
+</head>
+
+<body class="light">
+    <nav>
+        <a href="Dashboard.html" class="brand">
+            <div class="logo-icon">📋</div>
+            <span>EduTask</span>
+        </a>
+        <ui class="nav-links">
+            <li><a href="create_task.html">Create Task</a> </li>
+            <li><a href="all_task.html">All Tasks</a> </li>
+            <li><a href="index.html" style="color: red;">Logout</a></li>
+        </ui>
+    </nav>
+
+    <div class="section-1">
+        <h1>Add New Task</h1>
+        <p>Fill in the details below to assign a new task to a teacher.</p>
+    </div>
+
+
+
+    <div class="section-2">
+
+        <div class="section-2-1">
+            <span class="span-1">➕ Task Details</span>
+            <a href="Dashboard.html"><button class="back">← Back</button></a>
+        </div>
+        <div class="clear-fix"></div>
+        <hr>
+
+        <div class="section-2-2">
+            <form>
+                <label for="task-id">Task ID</label>
+                <br>
+                <input type="text" id="task-id" name="Task ID" required placeholder="e.g. T004">
+                <p>Must be unique (e.g. T001, T002 …)</p>
+                <br>
+                <label for="task-title">Task Title</label>
+                <input type="text" id="task-title" name="Task Title" required placeholder="e.g. Grade Mid-Term Papers">
+                <p></p>
+                <br>
+                <label for="assigned-teacher-name">Assigned Teacher Name</label>
+                <input type="text" id="assigned-teacher-name" name="Assigned Teacher Name" required
+                    placeholder="e.g. Sara Ahmed">
+                <p>Enter the full name of the teacher this task is assigned to.</p>
+                <br>
+                <label for="priority-level">Priority Level</label>
+                <br>
+                <select required name="Priority Level" id="priority-level">
+                    <option disabled selected>-Select Priority-</option>
+                    <option value="Low">🟢 Low</option>
+                    <option value="medium">🟡 Medium</option>
+                    <option value="Hard">🔴 Hard</option>
+                </select>
+                <p></p>
+                <br>
+                <label for="due-date">Due Date</label>
+                <input type="date" id="due-date" name="Due Date" required>
+                <p></p>
+                <br>
+                <label for="task-description">Task Description</label>
+                <br>
+                <textarea name="Task Description" id="task-description" required
+                    placeholder="Describe the task in detail..."></textarea>
+                <p></p>
+                <br>
+                <button type="submit" id="create">✅ Create Task</button>
+                <button type="reset" id="cancel">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="sections-3-and-4">
+        <div class="section-3">
+            <div class="section-3-1">
+                <span>📌 Priority Guide</span>
+            </div>
+            <hr>
+
+            <div class="section-3-2">
+                <span id="high">High</span>
+                <p id="high-p">Urgent tasks that must be completed immediately or within 24 hours.</p>
+                <span id="medium">Medium</span>
+                <p id="medium-p">Important tasks to be completed within the week.</p>
+                <span id="low">Low</span>
+                <p id="low-p">Non-urgent tasks that can be done when time allows.</p>
+            </div>
+
+
+        </div>
+
+        <div class="section-4">
+            <div class="section-4-1">
+                <span>💡 Tips</span>
+            </div>
+            <hr>
+
+            <div class="section-4-2">
+                <p>→
+                    Be specific in the task title so teachers understand at a glance</p>
+
+                <p>→
+                    Include deliverables or expected output in the description</p>
+
+                <p>→ Use unique Task IDs to avoid confusion.</p>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+</body>
+
 </html>
