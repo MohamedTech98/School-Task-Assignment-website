@@ -2,68 +2,97 @@
 <html>
 <head>
 <title>Signup</title>
-<link rel="stylesheet" href="style.css">    
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="auth.css">
+
 </head>
 
-<body class="dark">
-<nav >
+<body>
+   
+    <nav>
     <a href="index.html" class="brand">
         <div class="logo-icon">📋</div>
         <span>EduTask</span>
     </a>
-    <ui class="nav-links">
-        <li><a href="Login.html">Login</a> </li> 
-    </ui>        
-</nav >
+
+   
+    </nav>
+<div class="signup-container">
+
+  <!-- LEFT -->
+  <div class="signup-left">
+    <h1>Join EduTask today.</h1>
+    <p>Create your account and start managing tasks efficiently.</p>
+
+    <ul>
+      <li>• Instant access after sign-up</li>
+      <li>• Role-based dashboard tailored for you</li>
+      <li>• Priority-driven task management</li>
+      <li>• Track progress and completions</li>
+    </ul>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="signup-right">
+    <div class="signup-box">
+
+      <h2>Create Account</h2>
+      <p>Already have an account? <a href="Login.html">Log in</a></p>
+
+     <form onsubmit="signup(event)">
+
+        <label>I AM A</label>
+      <div class="role-toggle">
+  <button type="button" class="active">🧑‍🏫 Teacher</button>
+  <button type="button">👤 Admin</button>
+</div>
+
+        <div class="row">
+          <div>
+
+            <label>FIRST NAME</label>
+         <input type="text" id="firstname" >
+         <div class="error"></div>
+
+          </div>
 
 
-<center>
+          <div>
+            <label>LAST NAME</label>
+            <input type="text" id="lastname" >
+            <div class="error"></div>
 
-<h2>Create Account</h2>
+          </div>
 
-<form action="Login.html">
+        </div>
 
-<table border="1" cellpadding="10">
+        <label>USERNAME</label>
+      <input type="text" id="username" >
+      <div class="error"></div>
 
-<tr>
-<td>Name</td>
-<td><input type="text" required></td>
-</tr>
+        <label>EMAIL ADDRESS</label>
+        <input type="email" id="email" >
+        <div class="error"></div>
+        <label>PASSWORD</label>
+        <input type="password" id="password" >
+        <div class="error"></div>
 
-<tr>
-<td>Email</td>
-<td><input type="email" required></td>
-</tr>
+        <label>CONFIRM PASSWORD</label>
+        
+     <input type="password" id="confirmPassword" >
+     <div class="error"></div>
 
-<tr>
-<td>Password</td>
-<td><input type="password" required></td>
-</tr>
-<tr>
-<td>Confirm password</td>
-<td><input type="password" required></td>
-</tr>
+        <div class="divider"></div>
 
-<tr>
-<td>User Type</td>
-<td>
-<input type="radio" name="type" required> Admin
-<br>
-<input type="radio" name="type"> Teacher
-</td>
-</tr>
+        <button class="submit-btn">Create Account →</button>
 
-<tr>
-<td colspan="2" align="center">
-<input type="submit" value="Create Account">
-</td>
-</tr>
+      </form>
 
-</table>
+    </div>
+  </div>
 
-</form>
-
-</center>
-
+</div>
+<script src="script.js"></script>
 </body>
 </html>
