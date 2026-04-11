@@ -1,55 +1,120 @@
 <html>
-    <head>
-        <title>Edit Tasks</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body class="light">
-        <nav >
-            <a href="Dashboard.html" class="brand">
-                <div class="logo-icon">📋</div>
-                <span>EduTask</span>
-            </a>
-            <ui class="nav-links">
-                <li><a href="create_task.html">Create Task</a> </li>   
-                <li><a href="all_task.html">All Tasks</a> </li>  
-                <li><a href="index.html" style="color: red;">Logout</a></li>
-            </ui>        
-        </nav >     
-        <form>
-            <table>
-                <tbody>
-                    <tr>
-                        <td><label for="ID">Task ID</label></td>
-                        <td><input type="number" id="ID" name="ID" value="1"/></td>
-                    </tr>
-                    <tr>
-                        <td><label for="name">Task Name</label></td>
-                        <td><input type="text" id="name" name="task name" value="TAN"/></td>
-                    </tr>
-                    <tr>
-                        <td><label for="teacher name">Teacher Name</label></td>
-                        <td><input type="text" id="teacher name" name="teacher name" value="TN"></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <select name="Difficulity" id="difficulity">
-                                <option value="h" id="high">High</option>
-                                <option value="m" id="medium">Medium</option>
-                                <option value="e" id="easy">Easy</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><label for="description">Description</label></td>
-                        <td><input type="text" id="description" name="des" value="Edit here"/></td>
-                    </tr>
-                    <tr>
-                        <td><button type="submit">Edit</button></td>
-                        <td><button type="reset">Reset</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </form>
-    </body>
+
+<head>
+    <title>Edit Tasks</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="createTask_editTask.css">
+</head>
+
+<body class="light">
+    <nav>
+        <a href="Dashboard.html" class="brand">
+            <div class="logo-icon">📋</div>
+            <span>EduTask</span>
+        </a>
+        <ui class="nav-links">
+            <li><a href="create_task.html">Create Task</a> </li>
+            <li><a href="all_task.html">All Tasks</a> </li>
+            <li><a href="index.html" style="color: red;">Logout</a></li>
+        </ui>
+    </nav>
+    <div class="section-1">
+        <h1>Edit Task</h1>
+        <p>Update the task details below. Changes will be saved immediately.</p>
+    </div>
+
+
+
+    <div class="section-2">
+
+        <div class="section-2-1">
+            <span class="span-1">✏️ Edit Task</span>
+            <a href="Dashboard.html"><button class="back">← Back</button></a>
+        </div>
+        <div class="clear-fix"></div>
+        <hr>
+
+        <div class="section-2-2">
+            <form>
+                <label for="task-id">Task ID</label>
+                <br>
+                <input type="text" id="task-id" name="Task ID" required placeholder="e.g. T004" value="#T001">
+                <p>Must be unique (e.g. T001, T002 …)</p>
+                <br>
+                <label for="task-title">Task Title</label>
+                <input type="text" id="task-title" name="Task Title" required placeholder="e.g. Grade Mid-Term Papers"
+                    value="Grade Mid-Term Papers">
+                <p></p>
+                <br>
+                <label for="assigned-teacher-name">Assigned Teacher Name</label>
+                <input type="text" id="assigned-teacher-name" name="Assigned Teacher Name" required
+                    placeholder="e.g. Sara Ahmed" value="Sara Ahmed">
+                <p>Enter the full name of the teacher this task is assigned to.</p>
+                <br>
+                <label for="priority-level">Priority Level</label>
+                <br>
+                <select required name="Priority Level" id="priority-level">
+                    <option disabled selected>-Select Priority-</option>
+                    <option value="Low">🟢 Low</option>
+                    <option value="medium" selected>🟡 Medium</option>
+                    <option value="Hard">🔴 Hard</option>
+                </select>
+                <p></p>
+                <br>
+                <label for="due-date">Due Date</label>
+                <input type="date" id="due-date" name="Due Date" required>
+                <p></p>
+                <br>
+                <label for="task-status">Task Status</label>
+                <select name="Task Status" id="task-status" required>
+                    <option value="pending" selected>Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+                <p></p>
+                <br>
+                <label for="task-description">Task Description</label>
+                <br>
+                <textarea name="Task Description" id="task-description" required
+                    placeholder="Describe the task in detail...">Grade all mid-term exam papers for Grade 10 and submit results by Friday.</textarea>
+                <p></p>
+                <br>
+                <button type="submit" id="create">💾 Edit Task</button>
+                <button type="reset" id="cancel">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="section-3-edit">
+        <div class="section-3-edit-1">
+            <span>📊 Task Info</span>
+        </div>
+        <hr>
+
+        <div class="section-3-edit-2">
+            <span class="Task-ID">Task ID</span>
+            <br>
+            <span class="Task-ID-Info">T001</span>
+            <br>
+            <br>
+
+            <span class="Task-ID">Created By</span>
+            <br>
+            <span class="Task-ID-Info">admin_user</span>
+            <br>
+            <br>
+
+            <span class="Task-ID">Created At</span>
+            <br>
+            <span class="Task-ID-Info">N/A</span>
+            <br>
+            <br>
+
+            <span class="Task-ID">Current Status</span>
+            <br>
+            <span class="Status-Info">Pending</span>
+        </div>
+    </div>
+</body>
+
 </html>
