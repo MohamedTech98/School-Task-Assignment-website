@@ -2,63 +2,65 @@
 <html>
 <head>
 <title>Login</title>
-<link rel="stylesheet" href="style.css">    
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="auth.css">
+
 </head>
 
 <body class="dark">
-<nav >
+    
+
+<nav>
     <a href="index.html" class="brand">
         <div class="logo-icon">📋</div>
         <span>EduTask</span>
     </a>
-    <ui class="nav-links">
-        <li><a href="Signup.html" class="btn">sign Up</a></li>
-    </ui>        
-</nav >  
 
+    <ul class="nav-links">
+        <li><a href="Signup.html" class="btn">Sign Up</a></li>
+    </ul>
+</nav>
 
+<div class="auth-container">
+  <div class="auth-box">
 
-<center>
+    <div class="auth-logo">
+      <div class="icon">📋</div>
+      <strong>EduTask</strong>
+    </div>
 
-<h2>Login</h2>
+    <h2>Welcome back</h2>
+    <p>Don't have an account? <a href="Signup.html">Sign up</a></p>
 
-<form>
+   <form onsubmit="login(event)">
 
-<table border="1" cellpadding="10">
+  <label>USERNAME</label>
+  <input type="text" id="loginUsername" placeholder="Enter your username" required>
 
-<tr>
-<td>Email</td>
-<td><input type="email" required></td>
-</tr>
+  <label>PASSWORD</label>
+  <input type="password" id="loginPassword" placeholder="Enter your password" required>
 
-<tr>
-<td>Password</td>
-<td><input type="password" required></td>
-</tr>
-
-<tr>
-<td colspan="2" align="center">
-
-<input type="submit" value="Login as Admin" formaction="Dashboard.html">
-&nbsp;
-<input type="submit" value="Login as Teacher" formaction="TeacherTasks.html">
-
-</td>
-</tr>
-
-</table>
+  <button type="submit">Log In →</button>
 
 </form>
 
-<br><br>
+    <div class="demo-box">
+      <p>🎯 QUICK FILL — DEMO ACCOUNTS</p>
 
-Don't have an account?
+      <div class="demo-row">
+        <span>👤 Admin demo</span>
+        <a href="#">Use Admin →</a>
+      </div>
 
-<br><br>
+      <div class="demo-row">
+        <span>🧑‍🏫 Teacher demo</span>
+        <a href="#">Use Teacher →</a>
+      </div>
+    </div>
 
-<a href="Signup.html">Create New Account</a>
-
-</center>
-
+  </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
