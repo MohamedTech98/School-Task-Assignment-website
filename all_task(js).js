@@ -1,41 +1,16 @@
-
-const welcome = window.document.getElementById("name_admin");
-const user_admin = JSON.parse(localStorage.getItem("user"));
-
-if (user_admin && user_admin.role == "admin") {
-    welcome.innerHTML = user_admin.username + '!';
-} else {
-    window.location.href = "index.html";
-    alert("You are not admin");
-}
-
-function update_stats() {
-    const tasks = JSON.parse(localStorage.getItem("all_tasks")) || [];
-
-    const total      = tasks.length;
-    const pending    = tasks.filter(t => t.task_progress?.toLowerCase() === "pending").length;
-    const completed  = tasks.filter(t => t.task_progress?.toLowerCase() === "completed").length;
-    const highPri    = tasks.filter(t => t.task_prioirty?.toLowerCase() === "hard" ||
-                                        t.task_prioirty?.toLowerCase() === "high").length;
-
-    document.getElementById("total-tasks").innerHTML      = total;
-    document.getElementById("total-pending").innerHTML    = pending;
-    document.getElementById("total-completed").innerHTML  = completed;
-    document.getElementById("total-HighPriority").innerHTML = highPri;
-}
-
 function read_all_tasks() {
     const tasks = JSON.parse(localStorage.getItem("all_tasks")) || [];
-    const tbody = document.querySelector('tbody');
+    const tbody = document.querySelector('#task-tbody');
     const emptyState = document.getElementById("empty-state");
 
     tbody.innerHTML = "";
 
     if (tasks.length === 0) {
-        if (emptyState) emptyState.style.display = "";
+        if (emptyState) emptyState.style.display = "block";
         return;
     }
-    if (emptyState) emptyState.style.display = "none";
+
+    emptyState.style.display = "none";
 
     for (let i = 0; i < tasks.length; i++) {
         tbody.innerHTML += `
@@ -55,34 +30,7 @@ function read_all_tasks() {
     }
 }
 
-
-function insert_row() {
-    const insert_task = JSON.parse(localStorage.getItem("new_task"));
-
-    if (insert_task) {
-        let tasks = JSON.parse(localStorage.getItem("all_tasks")) || [];
-
-        const new_task = {
-            task_id:       insert_task.id_task,
-            task_title:    insert_task.title_task,
-            task_teacher:  insert_task.teacher_task,
-            task_prioirty: insert_task.prioirty_task,
-            task_progress: "Pending",
-            task_admin:    insert_task.name_admin
-        };
-
-        tasks.push(new_task);
-        localStorage.setItem("all_tasks", JSON.stringify(tasks));
-
-        localStorage.removeItem("new_task");
-    }
-
-    read_all_tasks();
-    update_stats();
-}
-
-window.addEventListener("load", insert_row);
-
+document.addEventListener("DOMContentLoaded", read_all_tasks);
 
 const target = document.querySelector("table");
 

@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="createTask_editTask.css">
+    <script defer src="new_task.js"></script>
 </head>
 
 <body class="light">
@@ -14,8 +15,9 @@
             <span>EduTask</span>
         </a>
         <ui class="nav-links">
-            <li><a href="create_task.html">Create Task</a> </li>
-            <li><a href="all_task.html">All Tasks</a> </li>
+            <li><a href="Dashboard.html">📊 Dashboard</a></li>
+            <li><a href="create_task.html">➕ Create Task</a> </li>
+            <li><a href="all_task.html">📋 All Tasks</a> </li>
             <li><a href="index.html" style="color: red;">Logout</a></li>
         </ui>
     </nav>
@@ -72,7 +74,7 @@
                     placeholder="Describe the task in detail..."></textarea>
                 <p></p>
                 <br>
-                <button type="submit" id="create">✅ Create Task</button>
+                <button type="button" id="create" >✅ Create Task</button>
                 <button type="reset" id="cancel">Cancel</button>
             </form>
         </div>
