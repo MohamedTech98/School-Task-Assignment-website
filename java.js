@@ -46,8 +46,8 @@ function DisplayTasks(FilteredTasks=null){
                         <h3 class="nameoftask">${Task.task_title}</h3>
                          <p class="paragraphoftask">Grade all mid-term exam papers for Grade 10 and submit results by Friday.</p>
                          <div id="bottomofcards">
-                            <a href="task_details.html"><button class="viewdetailsbutton">View Details</button></a>&nbsp;
-                            <button id="completebutton">✔Complete</button>
+                            <button class="viewdetailsbutton" onclick="openTaskDetails('${Task.task_id}')">View Details</button>&nbsp;
+                            <button class="completebutton" onclick="MarkAsCompleted('${Task.task_id}')">✔Complete</button>
                         </div>
                     </div>`
                     CardBody.insertAdjacentHTML('beforeend',CardHTML);
@@ -127,5 +127,13 @@ function MarkAsCompleted(taskID){
     alert("Task marked as completed! 🎉");
     DisplayTasks();
 
+}
+function openTaskDetails(taskId) {
+    const allTasks = JSON.parse(localStorage.getItem('all_tasks')) || [];
+    const task = allTasks.find(t => t.task_id === taskId);
+    if (task) {
+        localStorage.setItem('selected_task', JSON.stringify(task));
+        window.location.href = 'task_details.html';
+    }
 }
 

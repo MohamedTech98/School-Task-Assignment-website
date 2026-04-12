@@ -33,20 +33,20 @@
         <div class="card-body">
 
             <div class="task-meta">
-                <span class="priority priority-high">High</span>
-                <span class="task-id">#T001</span>
+                <span class="priority priority-high" id="task-priority">High</span>
+                <span class="task-id" id="task-id">#T001</span>
             </div>
 
-            <h2 class="task-title">Grade Mid-Term Papers</h2>
+            <h2 class="task-title" id="task-title">Grade Mid-Term Papers</h2>
 
             <div class="task-info">
-                <p><strong>Teacher:</strong>Sarah Ahmed</p>
-                <p><strong>Status:</strong> Pending</p>
+                <p><strong>Teacher:</strong> <span id="task-teacher">Sarah Ahmed</span></p>
+                <p><strong>Status:</strong> <span id="task-status">Pending</span></p>
             </div>
 
             <div class="task-description">
                 <h3>Description</h3>
-                <p>
+                <p id="task-description-text">
                     Grade all mid-term exam papers for Grade 10 students carefully and accurately.<br>
                     Ensure that each paper is reviewed based on the marking scheme provided.<br>
                     Record the final scores in the system and verify all entries to avoid errors.<br>
@@ -76,6 +76,8 @@
     <footer align="center">
         <p>&copy; 2026 EduTask | IS231 Web Technology Project</p>
     </footer>
+
+    <script src="task_details.js"></script>
 
 </body>
 </html>
