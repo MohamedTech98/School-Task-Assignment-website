@@ -93,14 +93,14 @@ function DisplayTasks(FilteredTasks=null){
             welcomename.innerHTML= `Welcome back, ${FullName}! Here are your assigned tasks.`
         }
         if(fname){
-            fname.innerText=UserData.first_name;
+            fname.value=UserData.first_name;
         }
         if(lname){
-            lname.innerText=UserData.last_name;
+            lname.value=UserData.last_name;
         }
 
         if(temail){
-            temail.innerText= UserData.email;
+            temail.value= UserData.email;
         }
         if(totalname){
             totalname.innerText=FullName;
