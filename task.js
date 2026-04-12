@@ -3,12 +3,20 @@
 
 const welcome = window.document.getElementById("name_admin");
 
+const user_admin = JSON.parse(localStorage.getItem("user"));
+
+if(user_admin.role == "admin") {
+    welcome.innerHTML = user_admin.username + '!';
+} else {
+    window.location.href = "index.html";
+    alert("You are not admin");
+}
+
+
 let total_task = 10;
 let n_pending = 3;
 let n_completed = 4;
 let n_HighPrioirty = 5;
-
-welcome.innerHTML = "Mohamed Ahmed" + '!';
 
 function add_task() {
     total_task++;
@@ -90,71 +98,53 @@ function edit_task(e) {
 target.addEventListener("click",Delete_Row);
 target.addEventListener("click",edit_task);
 
-function insert_row() {
-    const data = ["T001","web","Nammet","High","Pending","Mohamed Ahmed"];
+let tasks = [];
+
+function read_all_tasks() {
+    tasks = JSON.parse(localStorage.getItem("all_tasks")) || [];
 
     const tbody = document.querySelector('tbody');
-    tbody.innerHTML += `
-        <tr>
-            <td class = "task-ID">${data[0]}</td>
-            <td class = "task-name">${data[1]}</td>
-            <td class = "teacher-assigned">${data[2]}</td>
-            <td class = "Prioirty-task">${data[3]}</td>
-            <td class = "Progress-task">${data[4]}</td>
-            <td class = "admin-created">${data[5]}</td>
-            <td>
-                <button class="delete_row">
-                    Delete
-                </button>
-                <button class="edit_task">
-                    Edit
-                </button>
-            </td>
-    `;
-    tbody.innerHTML += `
-        <tr>
-            <td>${data[0]}</td>
-            <td>${data[1]}</td>
-            <td>${data[2]}</td>
-            <td>${data[3]}</td>
-            <td>${data[4]}</td>
-            <td>${data[5]}</td>
-            <td>
-                <button class="delete_row">
-                    Delete
-                </button>
-            </td>
-    `;
-    tbody.innerHTML += `
-        <tr>
-            <td>${data[0]}</td>
-            <td>${data[1]}</td>
-            <td>${data[2]}</td>
-            <td>${data[3]}</td>
-            <td>${data[4]}</td>
-            <td>${data[5]}</td>
-            <td>
-                <button class="delete_row">
-                    Delete
-                </button>
-            </td>
-    `;
-    // const table = document.getElementById("task-table");
-    // const new_row = table.insertRow();
 
-    // for(let i = 0;i<data.length;i++) {
-    //     const new_cell = new_row.insertCell();
-    //     new_cell.innerHTML = data[i]; 
-    // }
+    tbody.innerHTML = "";
 
-    // const col_action = new_row.insertCell();
-    // const edit_link = document.createElement("a");
-    // edit_link.innerText = "edit";
-    // // const delete_link = document.createElement("a");
-    // col_action.appendChild(edit_link);
+    for(let i = 0;i<tasks.length;i++) {
+        tbody.innerHTML += `
+            <tr>
+                <td class="task-ID">${tasks[i].task_id}</td>
+                <td class="task-name">${tasks[i].task_title}</td>
+                <td class="teacher-assigned">${tasks[i].task_teacher}</td>
+                <td class="Prioirty-task">${tasks[i].task_prioirty}</td>
+                <td class="Progress-task">${tasks[i].task_progress}</td>
+                <td class="admin-created">${tasks[i].task_admin}</td>
+                <td>
+                    <button class="delete_row">Delete</button>
+                    <button class="edit_task">Edit</button>
+                </td>
+            </tr>
+        `;
+    }
+}
 
+window.addEventListener("load", read_all_tasks);
+
+
+function insert_row() {
+
+    const new_task = {
+        task_id: "T00" + (tasks.length + 1),
+        task_title: "web",
+        task_teacher: "Nammet",
+        task_prioirty: "High",
+        task_progress: "Pending",
+        task_admin: "Mohamed Ahmed"
+    }
+
+    tasks.push(new_task);
+
+    localStorage.setItem("all_tasks", JSON.stringify(tasks));
+
+    read_all_tasks();
 }
 
 insert_row();
-// tbody.addEventListener("submit",insert_row);
 
