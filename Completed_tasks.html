@@ -7,7 +7,6 @@
     <title>Completed Tasks</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style1.css">
-    <script src="teatcher.js"></script>
 </head>
 
 <body class="light">
@@ -40,21 +39,21 @@
             <div class="divbeforespanwritingcards ">
                 <div class="stat-icon green">✅</div>
                 <div>
-                    <div class="scounts">0</div>
+                    <div class="scounts" id="stat-done">0</div>
                     <div class="stat-label">Tasks Completed</div>
                 </div>
             </div>
             <div class="divbeforespanwritingcards ">
                 <div class="stat-icon red">⏳</div>
                 <div>
-                    <div class="scounts">0</div>
+                    <div class="scounts" id="stat-pending">0</div>
                     <div class="stat-label">Still Pending</div>
                 </div>
             </div>
             <div class="divbeforespanwritingcards ">
                 <div class="stat-icon navy">📊</div>
                 <div>
-                    <div class="scounts">0%</div>
+                    <div class="scounts" id="stat-rate">0%</div>
                     <div class="stat-label">Completion Rate</div>
                 </div>
             </div>
@@ -92,6 +91,10 @@
             </div>
         </div>
     </div>
+    <script src="completed.js"></script>
+</body>
+
+</html>
 
 </body>
 
