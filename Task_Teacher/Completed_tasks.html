@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completed Tasks</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body class="light">
+    <nav>
+        <a href="TeacherTasks.html" class="brand">
+            <div class="logo-icon">📋</div>
+            <span>EduTask</span>
+        </a>
+        <a href="TeacherProfile.html" style="margin-right: auto;">
+            <span id="spanteachername">Teachername</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="TeacherTasks.html"><span>📋</span><span>My Tasks</span></a> </li>
+            <li><a href="Completed_tasks.html"><span>✅</span><span>Completed Tasks</span> </a> </li>
+            <li><a href="index.html" style="color: red;">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="page">
+        <div class="page-header fade-up">
+            <h1>Completed Tasks</h1>
+            <p>All tasks you have successfully completed. Great work! 🎉</p>
+        </div>
+        <div id="celebration" class="alert alert-success fade-up"
+            style="font-size:1rem;padding:1rem 1.25rem;margin-bottom:1.5rem;display:none;">
+            🏆 Outstanding! Keep up the excellent work.
+        </div>
+
+        <div class="firsttotalcards fade-up-2">
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon green">✅</div>
+                <div>
+                    <div class="scounts" id="stat-done">0</div>
+                    <div class="stat-label">Tasks Completed</div>
+                </div>
+            </div>
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon red">⏳</div>
+                <div>
+                    <div class="scounts" id="stat-pending">0</div>
+                    <div class="stat-label">Still Pending</div>
+                </div>
+            </div>
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon navy">📊</div>
+                <div>
+                    <div class="scounts" id="stat-rate">0%</div>
+                    <div class="stat-label">Completion Rate</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card fade-up-3">
+            <div class="card-header">
+                <h2>✅ Completed Tasks History</h2>
+                <a href="TeacherTasks.html" class="btn btn-primary btn-sm">← Back to Tasks</a>
+            </div>
+            <div class="card-body">
+
+                <table id="completed-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Task Title</th>
+                            <th>Priority</th>
+                            <th>Due Date</th>
+                            <th>Completed At</th>
+                            <th>Assigned By</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="completed-tbody"></tbody>
+                </table>
+
+                <div class="empty-state" id="empty-state" style="display:none;">
+                    <div class="icon">🎯</div>
+                    <h3>No completed tasks yet</h3>
+                    <p>Head to your task list and start completing tasks!</p>
+                    <a href="TeacherTasks.html" class="btn btn-primary" style="margin-top:1rem;">View My Tasks→</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="completed.js"></script>
+    <script src="java.js"></script>
+</body>
+
+</html>
+
+</body>
+
+</html>

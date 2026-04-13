@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Tasks</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
+
+</head>
+
+<body class="light">
+    <nav>
+        <a href="TeacherTasks.html" class="brand">
+            <div class="logo-icon">📋</div>
+            <span>EduTask</span>
+        </a>
+        <a href="TeacherProfile.html" style="margin-right: auto;">
+            <span id="spanteachername">Teachername</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="TeacherTasks.html"><span>📋</span><span>My Tasks</span></a> </li>
+            <li><a href="Completed_tasks.html"><span>✅</span><span>Completed Tasks</span> </a> </li>
+            <li><a href="index.html" style="color: red;">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="page">
+
+        <div class="page-header fade-up">
+            <h1>My Tasks</h1>
+            <!-- <p id="pwelcomemsg">Welcome back, Teachername! Here are your assigned tasks.</p> -->
+        </div>
+
+        <div class="firsttotalcards fade-up-2">
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon amber">📋</div>
+                <div>
+                    <div class="scounts">0</div>
+                    <div class="stat-label">Total Assigned</div>
+                </div>
+            </div>
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon red">⏳</div>
+                <div>
+                    <div class="scounts">0</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+            </div>
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon green">✅</div>
+                <div>
+                    <div class="scounts">0</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+            </div>
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon navy">🔴</div>
+                <div>
+                    <div class="scounts">0</div>
+                    <div class="stat-label">High Priority</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card fade-up-3">
+            <div class="card-header">
+                <h2>📋 Assigned Tasks</h4>
+                    <a href="Completed_tasks.html" class="btn btn-outline btn-sm">✅ View Completed</a>
+            </div>
+
+            <div class="card-body">
+
+                <!-- Search -->
+                <div class="search-bar">
+                    <select id="filter-priority">
+                        <option value="" disabled selected hidden>🔍Filter by Priority</option>
+                        <option value="High">🔴High</option>
+                        <option value="Medium">🟡Medium</option>
+                        <option value="Low">🟢Low</option>
+                    </select>
+                    <button class="btn btn-primary btn-sm" id="searchbutton" onclick="applyFilters()" >Search</button>
+                    <button class="btn btn-outline btn-sm" id="rebutton" onclick="resetFilters()">Reset</button>
+                </div><br><br>
+                    <!-- <div class="taskcards">
+                        <div class="headerofcard">
+                            <span id="Priorityoftaskhigh" class="priorityoftask" >High</span>&nbsp;
+                            <span id="codeoftask">#T001</span>
+                        </div><br>
+                        <h3 class="nameoftask">Grade Mid-Term Papers</h3>
+                        <p class="paragraphoftask">Grade all mid-term exam papers for Grade 10 and submit results by Friday.</p>
+                        <div id="bottomofcards">
+                            <a href="task_details.html"><button class="viewdetailsbutton">View Details</button></a>&nbsp;
+                            <button id="completebutton">✔Complete</button>
+                        </div>
+                    </div> -->
+
+                <!-- Alert -->
+                <div id="alert-box"></div>
+
+                <div class="empty-state" id="empty-state" style="display:none;">
+                    <div class="icon">📭</div>
+                    <h3>No tasks assigned to you</h3>
+                    <p>Check back later or contact your admin.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="java.js"></script>
+</body>
+
+</html>
