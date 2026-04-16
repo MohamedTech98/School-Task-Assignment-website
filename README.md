@@ -22,7 +22,7 @@ A web application that enables school admins to assign and manage tasks for teac
 <!-- > Add screenshots of your pages here once the project is complete. -->
 
 <p align="center">
-  <img src="Screenshot 2026-04-16 210418.jpg" alt="Home Page" width="700"/>
+  <img src="Screenshot 2026-04-16 221436.jpg" alt="Home Page" width="700"/>
 </p>
 
 ---
@@ -134,7 +134,7 @@ cd school-task-assignment
 | Layer | Technology |
 |-------|------------|
 | Frontend | HTML, CSS, JavaScript |
-| Styling | CSS / Bootstrap (if used) |
+| Styling | CSS  |
 | Storage | LocalStorage / Backend API |
 | Authentication | Session-based / Token-based |
 
