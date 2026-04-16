@@ -17,6 +17,15 @@ A web application that enables school admins to assign and manage tasks for teac
 - [Screenshots](#screenshots)
 
 ---
+## 📸 Screenshots
+
+<!-- > Add screenshots of your pages here once the project is complete. -->
+
+<p align="center">
+  <img src="Screenshot 2026-04-16 210418.jpg" alt="Home Page" width="700"/>
+</p>
+
+---
 
 ## 📖 Project Overview
 
@@ -146,35 +155,21 @@ school-task-assignment/
 │   ├── dashboard.html      # Admin task list
 │   ├── add-task.html       # Add new task
 │   └── edit-task.html      # Edit existing task
+│   ├── task_style.css      # Style Task
+│   └── task.js             # task js
+│ 
 │
 ├── teacher/
-│   ├── dashboard.html      # Teacher task list
+│   ├── myprofile.html      # Profile Teacher
 │   ├── task-detail.html    # Task detail view
 │   └── completed.html      # Completed tasks list
 │
 ├── css/
 │   └── style.css           # Global styles
+│   └── style1.css          # Global styles
 │
-├── js/
-│   ├── auth.js             # Authentication logic
-│   ├── tasks.js            # Task CRUD logic
-│   └── navbar.js           # Dynamic navbar logic
 │
 └── README.md
-```
-
----
-
-## 📸 Screenshots
-
-> Add screenshots of your pages here once the project is complete.
-
-```
-[Screenshot: Login Page]
-[Screenshot: Admin Dashboard]
-[Screenshot: Add Task Form]
-[Screenshot: Teacher Task List]
-[Screenshot: Task Detail Page]
 ```
 
 ---
@@ -183,7 +178,7 @@ school-task-assignment/
 
 - **Project Type:** School Assignment — Project 3
 - **Course:** Web Development
-- **Developer:** *(Your Name)*
+- **Developer:** Mohamed Ahmed,Kareem Abdelaziz,Alaa Wafiq,Nour Ahmed,Sama Ahmed,Youssef Ahmmed
 
 ---
 
