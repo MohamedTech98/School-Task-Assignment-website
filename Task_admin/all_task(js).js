@@ -22,8 +22,8 @@ function read_all_tasks() {
                 <td class="Progress-task">${tasks[i].task_progress}</td>
                 <td class="admin-created">${tasks[i].task_admin}</td>
                 <td>
-                    <button class="delete_row">Delete</button>
-                    <button class="edit_task">Edit</button>
+                    <button class="edit_task btn btn-danger btn-sm">Edit</button>
+                    <button class="delete_row btn btn-danger btn-sm">Delete</button>
                 </td>
             </tr>
         `;
