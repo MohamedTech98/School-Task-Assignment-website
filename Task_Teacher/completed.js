@@ -27,7 +27,7 @@ if (completed.length === 0) {
         <td style="font-size:0.85rem;">—</td>
         <td style="font-size:0.85rem;color:var(--green);">${t.task_teacher}</td>
         <td>${t.task_admin}</td>
-        <td><a href="teacher-task-detail.html?id=${t.task_id}" class="btn btn-outline btn-sm">View →</a></td>
+        <td><a href="task_details.html"id=${t.task_id}" class="btn btn-outline btn-sm">View →</a></td>
       `;
         tbody.appendChild(tr);
     });
