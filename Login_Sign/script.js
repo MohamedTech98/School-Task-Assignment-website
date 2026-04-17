@@ -26,12 +26,10 @@ function signup(event) {
     event.preventDefault();
 
     let isValid = true;
-
     let inputs = document.querySelectorAll(".signup-box input");
 
     inputs.forEach(input => {
         let error = input.nextElementSibling;
-
         if (input.value.trim() === "") {
             error.textContent = "This field is required";
             isValid = false;
@@ -40,11 +38,10 @@ function signup(event) {
         }
     });
 
-   
     let password = document.getElementById("password").value;
     let confirm = document.getElementById("confirmPassword").value;
 
-     if (password.length < 8) {
+    if (password.length < 8) {
         document.getElementById("password").nextElementSibling.textContent =
             "Password must be at least 8 characters";
         isValid = false;
@@ -58,16 +55,16 @@ function signup(event) {
 
     if (!isValid) return;
 
-  
     let user = {
-        username: document.getElementById("username").value,
-        email: document.getElementById("email").value,
-        password: password,
-        role: role
+        username:   document.getElementById("username").value,
+        first_name: document.getElementById("firstname").value,  
+        last_name:  document.getElementById("lastname").value,   
+        email:      document.getElementById("email").value,
+        password:   password,
+        role:       role
     };
 
     localStorage.setItem("user", JSON.stringify(user));
-
     alert("Account created");
     window.location.href = "Login.html";
 }
