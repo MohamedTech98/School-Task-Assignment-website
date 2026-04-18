@@ -23,7 +23,7 @@ if (completed.length === 0) {
         tr.innerHTML = `
         <td><code style="font-size:0.8rem;color:var(--text-muted)">#${t.task_id}</code></td>
         <td style="font-weight:500;">${t.task_title}</td>
-        <td><span class="badge badge-${t.task_proirty}">${t.task_prioirty}</span></td>
+        <td><span class="badge badge-${t.task_prioirty}">${t.task_prioirty}</span></td>
         <td style="font-size:0.85rem;">${t.task_date ? new Date(t.task_date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : '—'}</td>
         <td style="font-size:0.85rem;color:var(--green);">${t.task_completed_at? new Date(t.task_completed_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }): '—'}</td>
         <td>${t.task_admin}</td>
