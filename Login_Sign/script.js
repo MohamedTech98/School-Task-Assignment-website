@@ -88,9 +88,9 @@ function login(event) {
 
         
         if (user.role === "admin") {
-            window.location.href = "Dashboard.html";
+            window.location.href = "../Task_admin/Dashboard.html";
         } else {
-            window.location.href = "TeacherTasks.html";
+            window.location.href = "../Task_Teacher/TeacherTasks.html";
         }
 
     } else {
