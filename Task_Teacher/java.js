@@ -124,6 +124,7 @@ function MarkAsCompleted(taskID) {
     allTasks = allTasks.map(task => {
         if (task.task_id == taskID) {
             task.task_progress = 'Completed';
+            task.task_completed_at = new Date().toISOString();
         }
         return task;
     });
