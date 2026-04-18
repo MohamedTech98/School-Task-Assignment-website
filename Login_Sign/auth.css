@@ -135,38 +135,6 @@ body.dark {
     transform: translateY(-1px);
 }
 
-/* demo box */
-.demo-box {
-    margin-top: 20px;
-    background: #e2e8f0;
-    padding: 15px;
-    border-radius: 12px;
-}
-
-.demo-box p {
-    font-size: 12px;
-    font-weight: 700;
-    color: #64748b;
-    margin-bottom: 10px;
-}
-
-.demo-row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5px;
-}
-
-.demo-row span {
-    font-size: 13px;
-}
-
-.demo-row a {
-    font-size: 13px;
-    color: #f59e0b;
-}
-.demo-row span {
-    color: #0f172a;
-}
 /* SIGNUP  */
 
 .signup-container {
