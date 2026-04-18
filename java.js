@@ -112,6 +112,7 @@ window.onload = function () {
         if (completedstats) completedstats.innerText = completedCount;
         if (pendingstats)   pendingstats.innerText = pendingCount;
     }
+    UpdateDashboardStats();
 
     if (window.location.pathname.toLowerCase().includes('teachertasks')) {
         DisplayTasks();
@@ -124,6 +125,7 @@ function MarkAsCompleted(taskID) {
     allTasks = allTasks.map(task => {
         if (task.task_id == taskID) {
             task.task_progress = 'Completed';
+            task.task_completed_at = new Date().toISOString();
         }
         return task;
     });
@@ -131,6 +133,7 @@ function MarkAsCompleted(taskID) {
     localStorage.setItem('all_tasks', JSON.stringify(allTasks));
     alert("Task marked as completed! 🎉");
     DisplayTasks();
+    UpdateDashboardStats();
 }
 
 function openTaskDetails(taskId) {
@@ -140,4 +143,34 @@ function openTaskDetails(taskId) {
         localStorage.setItem('selected_task', JSON.stringify(task));
         window.location.href = 'task_details.html';
     }
+}
+function UpdateDashboardStats() {
+    const allTasks = JSON.parse(localStorage.getItem('all_tasks')) || [];
+    const UserData = JSON.parse(localStorage.getItem("user"));
+    
+    if (!UserData) return;
+
+    const FullName = (UserData.first_name + " " + UserData.last_name).trim().toLowerCase();
+
+
+    const myTasks = allTasks.filter(t => t.task_teacher.trim().toLowerCase() === FullName);
+
+
+    const totalAssigned = myTasks.length;
+    const pendingCount  = myTasks.filter(t => t.task_progress !== 'Completed').length;
+    const completedCount = myTasks.filter(t => t.task_progress === 'Completed').length;
+    const highPriorityCount = myTasks.filter(t => t.task_prioirty === 'High').length;
+
+
+    if(document.getElementById('TotalCounting')) 
+        document.getElementById('TotalCounting').innerText = totalAssigned;
+    
+    if(document.getElementById('PendingCounting')) 
+        document.getElementById('PendingCounting').innerText = pendingCount;
+    
+    if(document.getElementById('CompletedCounting')) 
+        document.getElementById('CompletedCounting').innerText = completedCount;
+    
+    if(document.getElementById('HighCounting')) 
+        document.getElementById('HighCounting').innerText = highPriorityCount;
 }

@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Tasks</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style1.css">
 
 </head>
 
@@ -22,7 +22,7 @@
         <ul class="nav-links">
             <li><a href="TeacherTasks.html"><span>📋</span><span>My Tasks</span></a> </li>
             <li><a href="Completed_tasks.html"><span>✅</span><span>Completed Tasks</span> </a> </li>
-            <li><a href="index.html" style="color: red;">Logout</a></li>
+            <li><a href="../index.html" style="color: red;">Logout</a></li>
         </ul>
     </nav>
     <div class="page">
@@ -36,28 +36,28 @@
             <div class="divbeforespanwritingcards ">
                 <div class="stat-icon amber">📋</div>
                 <div>
-                    <div class="scounts">0</div>
+                    <div class="scounts" id="TotalCounting">0</div>
                     <div class="stat-label">Total Assigned</div>
                 </div>
             </div>
             <div class="divbeforespanwritingcards ">
                 <div class="stat-icon red">⏳</div>
                 <div>
-                    <div class="scounts">0</div>
+                    <div class="scounts"  id="PendingCounting">0</div>
                     <div class="stat-label">Pending</div>
                 </div>
             </div>
             <div class="divbeforespanwritingcards ">
                 <div class="stat-icon green">✅</div>
                 <div>
-                    <div class="scounts">0</div>
+                    <div class="scounts" id="CompletedCounting">0</div>
                     <div class="stat-label">Completed</div>
                 </div>
             </div>
             <div class="divbeforespanwritingcards ">
                 <div class="stat-icon navy">🔴</div>
                 <div>
-                    <div class="scounts">0</div>
+                    <div class="scounts" id="HighCounting">0</div>
                     <div class="stat-label">High Priority</div>
                 </div>
             </div>
