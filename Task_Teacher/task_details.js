@@ -10,12 +10,12 @@ window.onload = function () {
     document.getElementById('task-id').textContent = '#' + task.task_id;
     document.getElementById('task-title').textContent = task.task_title;
     document.getElementById('task-teacher').textContent = task.task_teacher;
-    document.getElementById('task-description-text').textContent = task.task_description || 'No description provided.';
+    document.getElementById('task-description-text').textContent = task.description || 'No description provided.';
 
     // Priority
     const priorityEl = document.getElementById('task-priority');
-    priorityEl.textContent = task.task_priority;
-    priorityEl.className = `priority priority-${task.task_priority.toLowerCase()}`;
+    priorityEl.textContent = task.task_prioirty;
+    priorityEl.className = `priority priority-${task.task_prioirty.toLowerCase()}`;
 
     // Status
     const statusEl = document.getElementById('task-status');
@@ -47,5 +47,6 @@ window.onload = function () {
         
         statusEl.textContent = task.task_progress;
         alert('Status updated successfully! ✅');
+        
     });
 };
