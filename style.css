@@ -347,6 +347,24 @@ nav {
     gap: 10px;
 }
 
+/* ── BADGES ── */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-low { background: #dbeafe; color: #1d4ed8; }
+.badge-medium { background: #fef9c3; color: #854d0e; }
+.badge-high { background: #fee2e2; color: #991b1b; }
+.badge-done { background: var(--green-light); color: #15803d; }
+.badge-pending { background: #f1f5f9; color: var(--slate); }
+
+
 
 /* ---------- FOOTER ---------- */
 
