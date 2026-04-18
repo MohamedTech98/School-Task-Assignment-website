@@ -71,7 +71,9 @@ function insert_row() {
             task_teacher:  insert_task.teacher_task,
             task_prioirty: insert_task.prioirty_task,
             task_progress: "Pending",
-            task_admin:    insert_task.name_admin
+            task_admin:    insert_task.name_admin,
+            task_description: insert_task.description,
+            task_date: insert_task.date_task
         };
 
         tasks.push(new_task);
