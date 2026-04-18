@@ -34,10 +34,11 @@ function DisplayTasks(FilteredTasks = null) {
         : "";
 
     if (FilteredTasks != null) {
-        tasks = FilteredTasks;
+        tasks = FilteredTasks.filter(t => t.task_progress !== 'Completed');
     } else {
         const allTasks = JSON.parse(localStorage.getItem("all_tasks")) || [];
-        tasks = allTasks.filter(t => t.task_teacher.trim().toLowerCase() === FullName);
+        tasks = allTasks.filter(t => t.task_teacher.trim().toLowerCase() === FullName && t.task_progress !== 'Completed'
+        );
     }
 
     const CardBody = document.querySelector('.card-body');
