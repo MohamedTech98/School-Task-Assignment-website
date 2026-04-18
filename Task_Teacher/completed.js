@@ -1,11 +1,13 @@
 const allTasks = JSON.parse(localStorage.getItem('all_tasks') || '[]');
-const completed = allTasks.filter(t => t.task_progress === 'Completed');
-const pending = allTasks.filter(t => t.task_progress === 'Pending');
-
+const UserData = JSON.parse(localStorage.getItem("user"));
+const FullName = UserData ? (UserData.first_name + " " + UserData.last_name).trim().toLowerCase() : "";
+const myTasks = allTasks.filter(t => t.task_teacher.trim().toLowerCase() === FullName);
+const completed = myTasks.filter(t => t.task_progress === 'Completed');
+const pending = myTasks.filter(t => t.task_progress === 'Pending');
 
 document.getElementById('stat-done').textContent = completed.length;
 document.getElementById('stat-pending').textContent = pending.length;
-const rate = allTasks.length > 0 ? Math.round((completed.length / allTasks.length) * 100) : 0;
+const rate = myTasks.length > 0 ? Math.round((completed.length / myTasks.length) * 100) : 0;
 document.getElementById('stat-rate').textContent = rate + '%';
 
 if (completed.length >= 3) {
@@ -23,11 +25,11 @@ if (completed.length === 0) {
         tr.innerHTML = `
         <td><code style="font-size:0.8rem;color:var(--text-muted)">#${t.task_id}</code></td>
         <td style="font-weight:500;">${t.task_title}</td>
-        <td><span class="badge badge-${t.task_prioirty}">${t.task_prioirty}</span></td>
+        <td><span class="badge badge-${t.task_prioirty.toLowerCase()}">${t.task_prioirty}</span></td>
         <td style="font-size:0.85rem;">${t.task_date ? new Date(t.task_date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : '—'}</td>
         <td style="font-size:0.85rem;color:var(--green);">${t.task_completed_at? new Date(t.task_completed_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }): '—'}</td>
         <td>${t.task_admin}</td>
-        <td><a href="task_details.html" id="${t.task_id}" class="btn btn-outline btn-sm">View →</a></td>
+        <td><button class="btn btn-outline btn-sm" onclick="openTaskDetails('${t.task_id}')">View →</button></td>
       `;
         tbody.appendChild(tr);
     });
