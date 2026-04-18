@@ -33,4 +33,6 @@ function new_task() {
     window.location.href = "Dashboard.html";
 }
 
+
+
 document.querySelector("#create").addEventListener("click", new_task);
