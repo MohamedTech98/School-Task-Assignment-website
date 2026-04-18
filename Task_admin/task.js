@@ -5,7 +5,7 @@ const user_admin = JSON.parse(localStorage.getItem("user"));
 if (user_admin && user_admin.role == "admin") {
     welcome.innerHTML = user_admin.username + '!';
 } else {
-    window.location.href = "index.html";
+    window.location.href = "../index.html";
     alert("You are not admin");
 }
 
@@ -24,8 +24,8 @@ function update_stats() {
     document.getElementById("total-HighPriority").innerHTML = highPri;
 }
 
-function read_all_tasks() {
-    const tasks = JSON.parse(localStorage.getItem("all_tasks")) || [];
+function read_all_tasks(filter_task = null) {
+    let tasks = JSON.parse(localStorage.getItem("all_tasks")) || [];
     const tbody = document.querySelector('tbody');
     const emptyState = document.getElementById("empty-state");
 
@@ -36,6 +36,10 @@ function read_all_tasks() {
         return;
     }
     if (emptyState) emptyState.style.display = "none";
+
+    if(filter_task !== null) {
+        tasks = filter_task;
+    }
 
     for (let i = 0; i < tasks.length; i++) {
         if(user_admin.username != tasks[i].task_admin) {
@@ -129,5 +133,24 @@ function edit_task(e) {
     window.location.href = "edit_task.html";
 }
 
+function applyFilters() {
+    const selectedPriority = document.getElementById('filter-priority').value.toLowerCase();
+
+    
+    const allTasks = JSON.parse(localStorage.getItem('all_tasks')) || [];
+
+    let matchedTasks = [];
+    for (let i = 0; i < allTasks.length; i++) {
+        const Task = allTasks[i];
+        if (selectedPriority === '' || Task.task_prioirty.toLowerCase() == selectedPriority)
+            matchedTasks.push(Task);
+    }
+
+    read_all_tasks(matchedTasks);
+}
+function resetFilters() {
+    document.getElementById('filter-priority').value = '';
+    DisplayTasks();
+}
 target.addEventListener("click", Delete_Row);
 target.addEventListener("click", edit_task);
