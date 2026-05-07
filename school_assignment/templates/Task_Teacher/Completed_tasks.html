@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,23 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Completed Tasks</title>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../style1.css">
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/style1.css' %}">
 </head>
 
 <body class="light">
     <nav>
-        <a href="TeacherTasks.html" class="brand">
+        <a href="{% url 'dashboard' %}" class="brand">
             <div class="logo-icon">📋</div>
             <span>EduTask</span>
         </a>
-        <a href="TeacherProfile.html" style="margin-right: auto;">
+        <a href="{% url 'profile' %}" style="margin-right: auto;">
             <span id="spanteachername">Teachername</span>
         </a>
         <ul class="nav-links">
-            <li><a href="TeacherTasks.html"><span>📋</span><span>My Tasks</span></a> </li>
-            <li><a href="Completed_tasks.html"><span>✅</span><span>Completed Tasks</span> </a> </li>
-            <li><a href="../index.html" style="color: red;">Logout</a></li>
+            <li><a href="{% url 'dashboard' %}"><span>📋</span><span>My Tasks</span></a> </li>
+            <li><a href="{% url 'completed' %}"><span>✅</span><span>Completed Tasks</span> </a> </li>
+            <li><a href="{% url 'Home' %}" style="color: red;">Logout</a></li>
         </ul>
     </nav>
 
@@ -62,7 +63,7 @@
         <div class="card fade-up-3">
             <div class="card-header">
                 <h2>✅ Completed Tasks History</h2>
-                <a href="TeacherTasks.html" class="btn btn-primary btn-sm">← Back to Tasks</a>
+                <a href="{% url 'dashboard' %}" class="btn btn-primary btn-sm">← Back to Tasks</a>
             </div>
             <div class="card-body">
 
@@ -85,17 +86,17 @@
                     <div class="icon">🎯</div>
                     <h3>No completed tasks yet</h3>
                     <p>Head to your task list and start completing tasks!</p>
-                    <a href="TeacherTasks.html" class="btn btn-primary" style="margin-top:1rem;">View My Tasks→</a>
+                    <a href="{% url 'dashboard' %}" class="btn btn-primary" style="margin-top:1rem;">View My Tasks→</a>
                 </div>
 
             </div>
         </div>
     </div>
-    <script src="completed.js"></script>
-    <script src="java.js"></script>
+    <script src="{% static 'JS/completed.js' %}"></script>
+    <script src="{% static 'JS/java.js' %}"></script>
 </body>
 
-</html>
+</html> 
 
 </body>
 
