@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authentication.apps.AuthenticationConfig',
     'teacher',
+    'task_admin.apps.TaskAdminConfig',
 ]
 
 MIDDLEWARE = [
