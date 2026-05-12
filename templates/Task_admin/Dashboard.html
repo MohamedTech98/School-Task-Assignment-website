@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/style_task.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/style1.css' %}">
+    <!-- <script async src="login.js"></script> -->
+    <script async src="task.js"></script>
+</head>
+
+<body class="light">
+    <nav>
+        <a href="{% url 'admin:index' %}" class="brand">
+            <div class="logo-icon">📋</div>
+            <span>EduTask</span>
+        </a>
+        <!-- <a href="TeacherProfile.html" style="margin-right: auto;">
+            <span id="spanteachername">Teachername</span>
+        </a> -->
+        <ul class="nav-links">
+            <li><a href="{% url 'admin:index' %}">📊 Dashboard</a></li>
+            <li><a href="create_task.html">➕ Create Task</a> </li>
+            <li><a href="all_task.html">📋 All Tasks</a> </li>
+            <li><a href="{% url 'logout' %}" style="color: red;">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="page">
+
+        <div class="page-header fade-up">
+            <h1>Welcome,<span id="name_admin">Mohamed Ahmed!</span></h1>
+            <p>Manage all tasks you've created and assigned to teachers.</p>
+        </div>
+
+        <div class="firsttotalcards fade-up-2">
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon amber">📋</div>
+                <div>
+                    <div class="scounts" id="total-tasks">0</div>
+                    <div class="stat-label">Total tasks</div>
+                </div>
+            </div>
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon red">⏳</div>
+                <div>
+                    <div class="scounts" id="total-pending">0</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+            </div>
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon green">✅</div>
+                <div>
+                    <div class="scounts" id="total-completed">0</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+            </div>
+            <div class="divbeforespanwritingcards ">
+                <div class="stat-icon navy">🔴</div>
+                <div>
+                    <div class="scounts" id="total-HighPriority">0</div>
+                    <div class="stat-label">High Priority</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card fade-up-3">
+            <div class="card-header">
+                <h2>My Tasks</h4>
+                    <a href="create_task.html" class="btn btn-primary btn-sm">+ New Task</a>
+            </div>
+
+            <div class="card-body">
+
+                <!-- Search -->
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="🔍  Search by title or teacher name…" />
+
+                    <select id="filter-priority">
+                        <option value="">All Priorities</option>
+                        <option value="high">🔴 High</option>
+                        <option value="medium">🟡 Medium</option>
+                        <option value="low">🟢 Low</option>
+                    </select>
+                    <select id="filter-status">
+                        <option value="">All Statuses</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                    <button class="btn btn-outline btn-sm" onclick="applyFilters()">Filter</button>
+                    <button class="btn btn-outline btn-sm" onclick="resetFilters()">Reset</button>
+                </div>
+
+                <!-- Alert -->
+                <div id="alert-box"></div>
+
+                <!-- Table -->
+                <div id="task-table-wrapper">
+                    <table id="task-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Task Title</th>
+                                <th>Assigned Teacher</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Created By</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="task-tbody">
+                            
+                        </tbody>
+                    </table>
+                    <div class="empty-state" id="empty-state" style="display:none;">
+                        <div class="icon">📭</div>
+                        <h3>No tasks found</h3>
+                        <p>Create your first task to get started.</p>
+                        <a href="create_task.html" class="btn btn-primary" style="margin-top:1rem;">+ New Task</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
