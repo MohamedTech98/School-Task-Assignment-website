@@ -13,7 +13,7 @@
 
 <body class="light">
     <nav>
-        <a href="{% url 'dashboard' %}" class="brand">
+        <a href="{% url 'teacher_tasks' %}" class="brand">
             <div class="logo-icon">📋</div>
             <span>EduTask</span>
         </a>
@@ -21,9 +21,9 @@
             <span id="spanteachername">Teachername</span>
         </a>
         <ul class="nav-links">
-            <li><a href="{% url 'dashboard' %}" class="brand"><span>📋</span><span>My Tasks</span></a> </li>
+            <li><a href="{% url 'teacher_tasks' %}" class="brand"><span>📋</span><span>My Tasks</span></a> </li>
             <li><a href="{% url 'completed' %}"><span>✅</span><span>Completed Tasks</span> </a> </li>
-            <li><a href="{% url 'Home' %}" style="color: red;">Logout</a></li>
+            <li><a href="{% url 'logout' %}" style="color: red;">Logout</a></li>
         </ul>
     </nav>
     <div class="page">

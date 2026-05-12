@@ -13,8 +13,13 @@
             <span>EduTask</span>
         </a>
         <ui class="nav-links">
-            <li><a href="Login_Sign/Login.html">Login</a> </li> 
-            <li><a href="Login_Sign/Signup.html" class="btn">sign Up</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% if user.role == 'admin' %}{% url 'admin_dashboard' %}{% else %}{% url 'teacher_tasks' %}{% endif %}">Dashboard</a> </li>
+            <li><a href="{% url 'logout' %}" style="color: red;">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">Login</a> </li> 
+            <li><a href="{% url 'register' %}" class="btn">Sign Up</a></li>
+            {% endif %}
         </ui>        
     </nav >
 
@@ -23,8 +28,8 @@
         <h1>Welcome To<br /><span>EduTask.</span></h1>
         <p>A simple platform for admins to assign tasks to teachers and for teachers to track and complete them.</p>
         <div class="wel-cta">
-           <a href="Login_Sign/Signup.html" class="btn-wel-primary">Get Started →</a>
-           <a href="Login_Sign/Login.html" class="btn-wel-outline">Log In</a>
+           <a href="{% url 'register' %}" class="btn-wel-primary">Get Started →</a>
+           <a href="{% url 'login' %}" class="btn-wel-outline">Log In</a>
         </div>
     </section>
 
@@ -33,12 +38,12 @@
             <div class="role-card">
                <h3>👤<span class="role-tag admin">Admins</span></h3>
                <p>Take full control of your school's workflow. Assign tasks, set priorities, and keep your team on track — effortlessly.</p>
-               <a href="signup.html" class="role-link">Sign up as Admin &raquo;</a>
+               <a href="{% url 'register' %}" class="role-link">Sign up as Admin &raquo;</a>
             </div>
             <div class="role-card">
                 <h3>🧑‍🏫<span class="role-tag teacher">Teachers</span></h3>
                 <p>Stay on top of everything assigned to you. Focus on what matters most and never miss a deadline again.</p>
-                <a href="signup.html" class="role-link">Sign up as Teacher &raquo;</a>
+                <a href="{% url 'register' %}" class="role-link">Sign up as Teacher &raquo;</a>
             </div>
         </div> 
     </section>
