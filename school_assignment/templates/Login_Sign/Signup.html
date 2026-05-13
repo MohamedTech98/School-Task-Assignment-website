@@ -2,30 +2,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Signup</title>
-
+<title>Signup - EduTask</title>
 <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
-<link rel="stylesheet" href="auth.css">
-
+<link rel="stylesheet" href="{% static 'CSS/auth.css' %}">
 </head>
-
 <body>
-   
+
     <nav>
-    <a href="../index.html" class="brand">
+    <a href="{% url 'Home' %}" class="brand">
         <div class="logo-icon">📋</div>
         <span>EduTask</span>
     </a>
-
-   
     </nav>
+
 <div class="signup-container">
 
-  <!-- LEFT -->
   <div class="signup-left">
     <h1>Join EduTask today.</h1>
     <p>Create your account and start managing tasks efficiently.</p>
-
     <ul>
       <li>• Instant access after sign-up</li>
       <li>• Role-based dashboard tailored for you</li>
@@ -34,66 +28,95 @@
     </ul>
   </div>
 
-  <!-- RIGHT -->
   <div class="signup-right">
     <div class="signup-box">
 
       <h2>Create Account</h2>
-      <p>Already have an account? <a href="Login.html">Log in</a></p>
+      <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
 
-     <form onsubmit="signup(event)">
+      {% if messages %}
+        {% for message in messages %}
+          <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
 
-        <label>I AM A</label>
+     <form method="post" novalidate>
+      {% csrf_token %}
+
+      <label>I AM A</label>
       <div class="role-toggle">
-  <button type="button" class="active">🧑‍🏫 Teacher</button>
-  <button type="button">👤 Admin</button>
-</div>
+        <button type="button" class="role-btn {% if form.role.value == 'teacher' or not form.role.value %}active{% endif %}" data-value="teacher">🧑‍🏫 Teacher</button>
+        <button type="button" class="role-btn {% if form.role.value == 'admin' %}active{% endif %}" data-value="admin">👤 Admin</button>
+      </div>
+      {{ form.role }}
+      {% if form.role.errors %}
+        <div class="error">{{ form.role.errors.0 }}</div>
+      {% endif %}
 
-        <div class="row">
-          <div>
-
-            <label>FIRST NAME</label>
-         <input type="text" id="firstname" >
-         <div class="error"></div>
-
-          </div>
-
-
-          <div>
-            <label>LAST NAME</label>
-            <input type="text" id="lastname" >
-            <div class="error"></div>
-
-          </div>
-
+      <div class="row">
+        <div>
+          <label>{{ form.first_name.label }}</label>
+          {{ form.first_name }}
+          {% if form.first_name.errors %}
+            <div class="error">{{ form.first_name.errors.0 }}</div>
+          {% endif %}
         </div>
+        <div>
+          <label>{{ form.last_name.label }}</label>
+          {{ form.last_name }}
+          {% if form.last_name.errors %}
+            <div class="error">{{ form.last_name.errors.0 }}</div>
+          {% endif %}
+        </div>
+      </div>
 
-        <label>USERNAME</label>
-      <input type="text" id="username" >
-      <div class="error"></div>
+      <label>{{ form.username.label }}</label>
+      {{ form.username }}
+      {% if form.username.errors %}
+        <div class="error">{{ form.username.errors.0 }}</div>
+      {% endif %}
 
-        <label>EMAIL ADDRESS</label>
-        <input type="email" id="email" >
-        <div class="error"></div>
-        <label>PASSWORD</label>
-        <input type="password" id="password" >
-        <div class="error"></div>
+      <label>{{ form.email.label }}</label>
+      {{ form.email }}
+      {% if form.email.errors %}
+        <div class="error">{{ form.email.errors.0 }}</div>
+      {% endif %}
 
-        <label>CONFIRM PASSWORD</label>
-        
-     <input type="password" id="confirmPassword" >
-     <div class="error"></div>
+      <label>{{ form.password1.label }}</label>
+      {{ form.password1 }}
+      {% if form.password1.errors %}
+        <div class="error">{{ form.password1.errors.0 }}</div>
+      {% endif %}
 
-        <div class="divider"></div>
+      <label>{{ form.password2.label }}</label>
+      {{ form.password2 }}
+      {% if form.password2.errors %}
+        <div class="error">{{ form.password2.errors.0 }}</div>
+      {% endif %}
 
-        <button class="submit-btn">Create Account →</button>
+      <div class="divider"></div>
 
-      </form>
+      <button class="submit-btn" type="submit">Create Account →</button>
 
+     </form>
     </div>
   </div>
 
 </div>
-<script src="script.js"></script>
+
+<script>
+document.querySelectorAll('.role-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('{{ form.role.id_for_label }}').value = this.dataset.value;
+  });
+});
+// Hide the actual select element
+document.addEventListener('DOMContentLoaded', function() {
+  const select = document.getElementById('{{ form.role.id_for_label }}');
+  if (select) select.style.display = 'none';
+});
+</script>
 </body>
 </html>

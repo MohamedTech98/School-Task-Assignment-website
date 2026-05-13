@@ -7,7 +7,7 @@ SECRET_KEY = 'django-insecure-2@z+z!6frm&jcrttx+cnii%c!@**52)4ca8+g5d98z90m7yy#g
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'testserver']
 
 
 # Application definition
@@ -33,6 +33,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+AUTH_USER_MODEL = 'authentication.User'
+
+LOGIN_URL = 'login'
+LOGOUT_REDIRECT_URL = 'login'
 
 ROOT_URLCONF = 'school_assignment.urls'
 

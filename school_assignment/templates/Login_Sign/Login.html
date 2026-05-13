@@ -2,24 +2,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login</title>
-
+<title>Login - EduTask</title>
 <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
-<link rel="stylesheet" href="auth.css">
-
+<link rel="stylesheet" href="{% static 'CSS/auth.css' %}">
 </head>
-
 <body class="dark">
-    
 
 <nav>
-    <a href="../index.html" class="brand">
+    <a href="{% url 'Home' %}" class="brand">
         <div class="logo-icon">📋</div>
         <span>EduTask</span>
     </a>
-
     <ul class="nav-links">
-        <li><a href="Signup.html" class="btn">Sign Up</a></li>
+        <li><a href="{% url 'register' %}" class="btn">Sign Up</a></li>
     </ul>
 </nav>
 
@@ -32,21 +27,32 @@
     </div>
 
     <h2>Welcome back</h2>
-    <p>Don't have an account? <a href="Signup.html">Sign up</a></p>
+    <p>Don't have an account? <a href="{% url 'register' %}">Sign up</a></p>
 
-   <form onsubmit="login(event)">
+    {% if messages %}
+      {% for message in messages %}
+        <div class="message {{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
 
-  <label>USERNAME</label>
-  <input type="text" id="loginUsername" placeholder="Enter your username" required>
+   <form method="post" novalidate>
+    {% csrf_token %}
 
-  <label>PASSWORD</label>
-  <input type="password" id="loginPassword" placeholder="Enter your password" required>
+    {% for field in form %}
+      <label>{{ field.label }}</label>
+      {{ field }}
+      {% if field.errors %}
+        <div class="error">{{ field.errors.0 }}</div>
+      {% endif %}
+    {% endfor %}
 
-  <button type="submit">Log In →</button>
+    {% if form.non_field_errors %}
+      <div class="error">{{ form.non_field_errors.0 }}</div>
+    {% endif %}
 
-</form>
+    <button type="submit">Log In →</button>
+   </form>
   </div>
 </div>
-<script src="script.js"></script>
 </body>
 </html>

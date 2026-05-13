@@ -12,7 +12,7 @@
 
 <body class="light">
     <nav>
-        <a href="{% url 'dashboard' %}" class="brand">
+        <a href="{% url 'teacher_tasks' %}" class="brand">
             <div class="logo-icon">📋</div>
             <span>EduTask</span>
         </a>
@@ -20,7 +20,7 @@
             <span id="spanteachername">Teachername</span>
         </a>
         <ul class="nav-links">
-            <li><a href="{% url 'dashboard' %}"><span>📋</span><span>My Tasks</span></a> </li>
+            <li><a href="{% url 'teacher_tasks' %}"><span>📋</span><span>My Tasks</span></a> </li>
             <li><a href="{% url 'completed' %}"><span>✅</span><span>Completed Tasks</span> </a> </li>
             <li><a href="{% url 'Home' %}" style="color: red;">Logout</a></li>
         </ul>
@@ -63,7 +63,7 @@
         <div class="card fade-up-3">
             <div class="card-header">
                 <h2>✅ Completed Tasks History</h2>
-                <a href="{% url 'dashboard' %}" class="btn btn-primary btn-sm">← Back to Tasks</a>
+                <a href="{% url 'teacher_tasks' %}" class="btn btn-primary btn-sm">← Back to Tasks</a>
             </div>
             <div class="card-body">
 
@@ -86,7 +86,7 @@
                     <div class="icon">🎯</div>
                     <h3>No completed tasks yet</h3>
                     <p>Head to your task list and start completing tasks!</p>
-                    <a href="{% url 'dashboard' %}" class="btn btn-primary" style="margin-top:1rem;">View My Tasks→</a>
+                    <a href="{% url 'teacher_tasks' %}" class="btn btn-primary" style="margin-top:1rem;">View My Tasks→</a>
                 </div>
 
             </div>
