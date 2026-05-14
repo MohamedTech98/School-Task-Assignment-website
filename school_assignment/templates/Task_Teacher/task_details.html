@@ -1,5 +1,7 @@
 {% load static %}
+
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,20 +12,21 @@
 </head>
 
 <body class="light">
-    <nav >
+    <nav>
         <a href="{% url 'teacher_tasks' %}" class="brand">
             <div class="logo-icon">📋</div>
             <span>EduTask</span>
         </a>
-        <ui class="nav-links">
-            <li><a href="{% url 'completed' %}">Completed Tasks</a> </li> 
-            <li><a href="{% url 'profile' %}">Profile</a> </li>     
-            <li><a href="{% url 'Home' %}" style="color: red;">Logout</a></li>
-        </ui>        
-    </nav >      
 
-    <!-- Task Details -->
-    <div class="page">
+```
+    <ul class="nav-links">
+        <li><a href="{% url 'completed' %}">Completed Tasks</a></li> 
+        <li><a href="{% url 'profile' %}">Profile</a></li>     
+        <li><a href="{% url 'logout' %}" style="color: red;">Logout</a></li>
+    </ul>        
+</nav>      
+
+<div class="page">
 
     <div class="page-header">
         <h1>Task Details</h1>
@@ -33,52 +36,76 @@
     <div class="card task-details-card">
         <div class="card-body">
 
+            <!-- Priority + Code -->
             <div class="task-meta">
-                <span class="priority priority-high" id="task-priority">High</span>
-                <span class="task-id" id="task-id">#T001</span>
+                <span class="priority">
+                    {{ task.priority }}
+                </span>
+                <span class="task-id">
+                    #{{ task.task_code }}
+                </span>
             </div>
 
-            <h2 class="task-title" id="task-title">Grade Mid-Term Papers</h2>
+            <!-- Title -->
+            <h2 class="task-title">
+                {{ task.title }}
+            </h2>
 
+            <!-- Info -->
             <div class="task-info">
-                <p><strong>Teacher:</strong> <span id="task-teacher">Sarah Ahmed</span></p>
-                <p><strong>Status:</strong> <span id="task-status">Pending</span></p>
+                <p><strong>Teacher:</strong> {{ task.teacher.get_full_name }} </p>
+
+                <p><strong>Status:</strong> 
+                    {% if task.is_completed %}
+                        Completed ✅
+                    {% else %}
+                        Pending ⏳
+                    {% endif %}
+                </p>
+
+                <p><strong>Deadline:</strong> {{ task.deadline }}</p>
             </div>
 
+            <!-- Description -->
             <div class="task-description">
                 <h3>Description</h3>
-                <p id="task-description-text">
-                    Grade all mid-term exam papers for Grade 10 students carefully and accurately.<br>
-                    Ensure that each paper is reviewed based on the marking scheme provided.<br>
-                    Record the final scores in the system and verify all entries to avoid errors.<br>
-                    The results should be completed and submitted before the deadline (Friday).<br>
-                    If any discrepancies or unclear answers are found, report them to the administration for clarification.
+                <p>
+                    {{ task.description }}
                 </p>
             </div>
 
+            <!-- Update Status -->
             <div class="update-section">
                 <h3>Update Status</h3>
-                <select id="status">
-                    <option value="pending">Pending</option>
-                    <option value="completed">Completed</option>
-                </select>
 
-                <button class="btn btn-primary">Update</button>
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <select name="status">
+                        <option value="pending" {% if not task.is_completed %}selected{% endif %}>Pending</option>
+                        <option value="completed" {% if task.is_completed %}selected{% endif %}>Completed</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary">
+                        Update
+                    </button>
+                </form>
             </div>
 
+            <!-- Back -->
             <div class="back-link">
-                <a href="TeacherTasks.html">⬅ Back to My Tasks</a>
+                <a href="{% url 'teacher_tasks' %}">⬅ Back to My Tasks</a>
             </div>
 
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer align="center">
-        <p>&copy; 2026 EduTask | IS231 Web Technology Project</p>
-    </footer>
+</div>
 
-    <script src="{% static 'JS/task_details.js' %}"></script>
+<footer align="center">
+    <p>&copy; 2026 EduTask | IS231 Web Technology Project</p>
+</footer>
+```
 
 </body>
 </html>
