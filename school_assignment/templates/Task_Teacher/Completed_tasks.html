@@ -17,11 +17,13 @@
             <span>EduTask</span>
         </a>
         <a href="{% url 'profile' %}" style="margin-right: auto;">
-            <span id="spanteachername">Teachername</span>
+            <span id="spanteachername">
+                {{ request.user.first_name }} {{ request.user.last_name }}
+            </span>
         </a>
         <ul class="nav-links">
-            <li><a href="{% url 'teacher_tasks' %}"><span>📋</span><span>My Tasks</span></a> </li>
-            <li><a href="{% url 'completed' %}"><span>✅</span><span>Completed Tasks</span> </a> </li>
+            <li><a href="{% url 'teacher_tasks' %}"><span>📋</span><span>My Tasks</span></a></li>
+            <li><a href="{% url 'completed' %}"><span>✅</span><span>Completed Tasks</span></a></li>
             <li><a href="{% url 'Home' %}" style="color: red;">Logout</a></li>
         </ul>
     </nav>
@@ -31,30 +33,32 @@
             <h1>Completed Tasks</h1>
             <p>All tasks you have successfully completed. Great work! 🎉</p>
         </div>
-        <div id="celebration" class="alert alert-success fade-up"
-            style="font-size:1rem;padding:1rem 1.25rem;margin-bottom:1.5rem;display:none;">
+
+        {% if show_celebration %}
+        <div class="alert alert-success fade-up" style="font-size:1rem;padding:1rem 1.25rem;margin-bottom:1.5rem;">
             🏆 Outstanding! Keep up the excellent work.
         </div>
+        {% endif %}
 
         <div class="firsttotalcards fade-up-2">
-            <div class="divbeforespanwritingcards ">
+            <div class="divbeforespanwritingcards">
                 <div class="stat-icon green">✅</div>
                 <div>
-                    <div class="scounts" id="stat-done">0</div>
+                    <div class="scounts" id="stat-done">{{ total_completed }}</div>
                     <div class="stat-label">Tasks Completed</div>
                 </div>
             </div>
-            <div class="divbeforespanwritingcards ">
+            <div class="divbeforespanwritingcards">
                 <div class="stat-icon red">⏳</div>
                 <div>
-                    <div class="scounts" id="stat-pending">0</div>
+                    <div class="scounts" id="stat-pending">{{ total_pending }}</div>
                     <div class="stat-label">Still Pending</div>
                 </div>
             </div>
-            <div class="divbeforespanwritingcards ">
+            <div class="divbeforespanwritingcards">
                 <div class="stat-icon navy">📊</div>
                 <div>
-                    <div class="scounts" id="stat-rate">0%</div>
+                    <div class="scounts" id="stat-rate">{{ completion_rate }}%</div>
                     <div class="stat-label">Completion Rate</div>
                 </div>
             </div>
@@ -67,6 +71,7 @@
             </div>
             <div class="card-body">
 
+                {% if completed_tasks %}
                 <table id="completed-table">
                     <thead>
                         <tr>
@@ -79,25 +84,55 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody id="completed-tbody"></tbody>
+                    <tbody id="completed-tbody">
+                        {% for task in completed_tasks %}
+                        <tr>
+                            <td><code style="font-size:0.8rem;color:var(--text-muted)">#{{ task.id }}</code></td>
+                            <td style="font-weight:500;">{{ task.title }}</td>
+                            <td>
+                                <span class="badge badge-{{ task.priority|lower }}">{{ task.priority }}</span>
+                            </td>
+                            <td style="font-size:0.85rem;">
+                                {% if task.deadline %}
+                                    {{ task.deadline|date:"d M Y" }}
+                                {% else %}
+                                    —
+                                {% endif %}
+                            </td>
+                            <td style="font-size:0.85rem;color:var(--green);">
+                                {% if task.completed_at %}
+                                    {{ task.completed_at|date:"d M Y" }}
+                                {% else %}
+                                    —
+                                {% endif %}
+                            </td>
+                            <td>{{ task.admin.get_full_name }}</td>
+                            <td>
+                                <a href="{% url 'details' %}?id={{ task.id }}" class="btn btn-outline btn-sm">
+                                    View →
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
 
-                <div class="empty-state" id="empty-state" style="display:none;">
+                {% else %}
+                <div class="empty-state" id="empty-state">
                     <div class="icon">🎯</div>
                     <h3>No completed tasks yet</h3>
                     <p>Head to your task list and start completing tasks!</p>
-                    <a href="{% url 'teacher_tasks' %}" class="btn btn-primary" style="margin-top:1rem;">View My Tasks→</a>
+                    <a href="{% url 'teacher_tasks' %}" class="btn btn-primary" style="margin-top:1rem;">
+                        View My Tasks →
+                    </a>
                 </div>
+                {% endif %}
 
             </div>
         </div>
     </div>
-    <script src="{% static 'JS/completed.js' %}"></script>
+
     <script src="{% static 'JS/java.js' %}"></script>
-</body>
-
-</html> 
-
 </body>
 
 </html>

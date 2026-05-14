@@ -1,5 +1,8 @@
+from datetime import timezone
+
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
+from task_admin.models import Task
 
 
 @login_required
@@ -9,9 +12,32 @@ def teacher_tasks(request):
 
 @login_required
 def completed(request):
-    return render(request, 'Task_Teacher/Completed_tasks.html')
-
-
+    all_tasks = Task.objects.filter(teacher=request.user)
+    completed_tasks = all_tasks.filter(is_completed=True).order_by('-completed_at')
+    pending_tasks = all_tasks.filter(is_completed=False)
+ 
+    total = all_tasks.count()
+    total_completed = completed_tasks.count()
+    total_pending = pending_tasks.count()
+    completion_rate = round((total_completed / total) * 100) if total > 0 else 0
+ 
+    return render(request, 'Task_Teacher/Completed_tasks.html', {
+        'completed_tasks': completed_tasks,
+        'total_completed': total_completed,
+        'total_pending': total_pending,
+        'completion_rate': completion_rate,
+        'show_celebration': total_completed >= 3,
+    })
+    
+@login_required
+@login_required
+def complete_task(request, pk):
+    task = get_object_or_404(Task, id=pk, teacher=request.user)
+    task.is_completed = True
+    task.completed_at = timezone.now()  
+    task.save()
+    return redirect('teacher_tasks')
+ 
 @login_required
 def profile(request):
     return render(request, 'Task_Teacher/TeacherProfile.html')

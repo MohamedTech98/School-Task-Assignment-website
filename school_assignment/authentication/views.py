@@ -74,12 +74,19 @@ def admin_dashboard(request):
     mytask = Task.objects.filter(
         admin = request.user
     )
-    prioirty_high = Task.objects.filter(priority = 'high').count()
-    total_task = Task.objects.all().count()
+    prioirty_high = mytask.filter(priority = 'high').count()
+    completed_tasks = mytask.filter(is_completed=True)
+    pending_tasks = mytask.filter(is_completed=False)
+    
+    total_task = mytask.count()
+    total_completed  = completed_tasks.count()
+    total_pending  = pending_tasks.count()
 
     return render(request, 'Task_admin/Dashboard.html',{
         'mytask':mytask,
         'priority_high':prioirty_high,
         'total_task':total_task,
+        'total_completed': total_completed,
+        'total_pending': total_pending,
         }
         )

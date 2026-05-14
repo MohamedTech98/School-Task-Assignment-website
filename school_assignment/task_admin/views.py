@@ -9,7 +9,7 @@ def create_task_view(request):
         form = TaskForm(request.POST)
         if form.is_valid():
             task = form.save(commit=False)
-            task.admin = request.user      # set logged-in admin
+            task.admin = request.user      
             task.save()
             return redirect('dashboard')
     return render(request, 'Task_admin/create_task.html', {'form': form})

@@ -6,4 +6,5 @@ urlpatterns = [
     path('completed/', completed, name='completed'),
     path('profile/', profile, name='profile'),
     path('details/', details, name='details'),
+    path('complete/<int:pk>/', complete_task, name='complete_task'),
 ]
