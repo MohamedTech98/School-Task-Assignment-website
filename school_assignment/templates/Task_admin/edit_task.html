@@ -10,16 +10,16 @@
 
 <body class="light">
     <nav>
-        <a href="{% url 'admin_dashboard' %}" class="brand">
+        <a href="{% url 'dashboard' %}" class="brand">
             <div class="logo-icon">📋</div>
             <span>EduTask</span>
         </a>
-        <ui class="nav-links">
-            <li><a href="{% url 'admin_dashboard' %}">📊 Dashboard</a></li>
-            <li><a href="{% url 'admin_create_task' %}">➕ Create Task</a> </li>
-            <li><a href="{% url 'admin_all_task' %}">📋 All Tasks</a> </li>
+        <ul class="nav-links">
+            <li><a href="{% url 'dashboard' %}">📊 Dashboard</a></li>
+            <li><a href="{% url 'create' %}">➕ Create Task</a> </li>
+            <li><a href="{% url 'all' %}">📋 All Tasks</a> </li>
             <li><a href="{% url 'logout' %}" style="color: red;">Logout</a></li>
-        </ui>
+        </ul>
     </nav>
     <div class="section-1">
         <h1>Edit Task</h1>
@@ -32,7 +32,7 @@
 
         <div class="section-2-1">
             <span class="span-1">✏️ Edit Task</span>
-            <a href="{% url 'admin_dashboard' %}"><button class="back">← Back</button></a>
+            <a href="{% url 'dashboard' %}"><button class="back">← Back</button></a>
         </div>
         <div class="clear-fix"></div>
         <hr>
