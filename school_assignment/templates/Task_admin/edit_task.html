@@ -38,50 +38,44 @@
         <hr>
 
         <div class="section-2-2">
-            <form>
+            <form method="post">
+                {% csrf_token %}
                 <label for="task-id">Task ID</label>
                 <br>
-                <input type="text" id="task-id" name="Task ID" required placeholder="e.g. T004" value="#T001">
+                <input type="text" id="task-id" name="task_code" required placeholder={{task.task_code}}>
                 <p>Must be unique (e.g. T001, T002 …)</p>
                 <br>
                 <label for="task-title">Task Title</label>
-                <input type="text" id="task-title" name="Task Title" required placeholder="e.g. Grade Mid-Term Papers"
-                    value="Grade Mid-Term Papers">
+                <input type="text" id="task-title" name="title" required placeholder={{task.title}}>
                 <p></p>
                 <br>
-                <label for="assigned-teacher-name">Assigned Teacher Name</label>
-                <input type="text" id="assigned-teacher-name" name="Assigned Teacher Name" required
-                    placeholder="e.g. Sara Ahmed" value="Sara Ahmed">
-                <p>Enter the full name of the teacher this task is assigned to.</p>
+                <label for="id_teacher">Assigned Teacher</label>
+                <br>
+                <!-- Renders the ModelChoiceField dropdown from forms.py (only role=teacher users) -->
+                {{form.teacher}}
+                <p>Select the teacher this task is assigned to.</p>
                 <br>
                 <label for="priority-level">Priority Level</label>
                 <br>
-                <select required name="Priority Level" id="priority-level">
+                <select required name="priority" id="priority-level">
                     <option disabled selected>-Select Priority-</option>
                     <option value="Low">🟢 Low</option>
-                    <option value="medium" selected>🟡 Medium</option>
-                    <option value="Hard">🔴 Hard</option>
+                    <option value="Medium">🟡 Medium</option>
+                    <option value="High">🔴 High</option>
                 </select>
                 <p></p>
                 <br>
                 <label for="due-date">Due Date</label>
-                <input type="date" id="due-date" name="Due Date" required>
-                <p></p>
-                <br>
-                <label for="task-status">Task Status</label>
-                <select name="Task Status" id="task-status" required>
-                    <option value="pending" selected>Pending</option>
-                    <option value="completed">Completed</option>
-                </select>
+                <input type="date" id="due-date" name="deadline" placeholder={{task.deadline}} required>
                 <p></p>
                 <br>
                 <label for="task-description">Task Description</label>
                 <br>
-                <textarea name="Task Description" id="task-description" required
-                    placeholder="Describe the task in detail...">Grade all mid-term exam papers for Grade 10 and submit results by Friday.</textarea>
+                <textarea name="description" id="task-description" required
+                    placeholder={{task.description}}></textarea>
                 <p></p>
                 <br>
-                <button type="button" id="create">💾 Edit Task</button>
+                <button type="submit" id="create">✅ Edit</button>
                 <button type="reset" id="cancel">Cancel</button>
             </form>
         </div>
