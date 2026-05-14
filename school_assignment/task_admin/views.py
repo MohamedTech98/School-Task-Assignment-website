@@ -16,9 +16,5 @@ class TaskRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = "pk"
 
 
-
-# def dashboard_view(request):
-#     return render(request,'Task_admin/Dashboard.html')
-
 # def create_task_view(request):
 #     return render(request,'Task_admin/create_task.html')

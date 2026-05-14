@@ -5,7 +5,7 @@
     <title>Edit Tasks</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
-    <link rel="stylesheet" href="createTask_editTask.css">
+    <link rel="stylesheet" href="{% static 'CSS/createTask_editTask.css' %}">
 </head>
 
 <body class="light">
@@ -32,7 +32,7 @@
 
         <div class="section-2-1">
             <span class="span-1">✏️ Edit Task</span>
-            <a href="Dashboard.html"><button class="back">← Back</button></a>
+            <a href="{% url 'admin_dashboard' %}"><button class="back">← Back</button></a>
         </div>
         <div class="clear-fix"></div>
         <hr>
@@ -118,7 +118,7 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="edit_task.js"></script>
+    <script src="{% static 'JS/edit_task.js' %}"></script>
 </body>
 
 </html>

@@ -1,13 +1,3 @@
-const welcome    = window.document.getElementById("name_admin");
-const user_admin = JSON.parse(localStorage.getItem("user")); // session only — not task data
-
-if (user_admin && user_admin.role == "admin") {
-    welcome.innerHTML = user_admin.username + '!';
-} else {
-    window.location.href = "../index.html";
-    alert("You are not admin");
-}
-
 // We keep tasks in a plain JS variable instead of localStorage
 // Every function below reads from / writes to this variable
 let currentTasks = [];
