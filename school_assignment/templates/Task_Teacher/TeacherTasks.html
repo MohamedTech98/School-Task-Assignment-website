@@ -36,28 +36,28 @@
             <div class="divbeforespanwritingcards ">
                 <div class="stat-icon amber">📋</div>
                 <div>
-                    <div class="scounts">0</div>
+                    <div class="scounts">{{totalassigned}}</div>
                     <div class="stat-label">Total Assigned</div>
                 </div>
             </div>
             <div class="divbeforespanwritingcards ">
                 <div class="stat-icon red">⏳</div>
                 <div>
-                    <div class="scounts">0</div>
+                    <div class="scounts">{{totalpending}}</div>
                     <div class="stat-label">Pending</div>
                 </div>
             </div>
             <div class="divbeforespanwritingcards ">
                 <div class="stat-icon green">✅</div>
                 <div>
-                    <div class="scounts">0</div>
+                    <div class="scounts">{{totalcompleted}}</div>
                     <div class="stat-label">Completed</div>
                 </div>
             </div>
             <div class="divbeforespanwritingcards ">
                 <div class="stat-icon navy">🔴</div>
                 <div>
-                    <div class="scounts">0</div>
+                    <div class="scounts">{{totalhighpriority}}</div>
                     <div class="stat-label">High Priority</div>
                 </div>
             </div>
@@ -85,12 +85,30 @@
                     
                 <!-- Alert -->
                 <div id="alert-box"></div>
+                {% if alltasks %}
+                <div class="card-container">
+                    {% for task in alltasks %}
+                    <div class="task-item" data-priority="{{task.priority}}" style="border: 1px solid #eee; padding: 15px; margin-bottom: 15px; border-radius: 8px; background-color: #fff;">
+                        <h3>{{task.title}}<span style="font-size: 0.7em; color: gray;">(#{{ task.task_code }})</span> </h3>
+                        <p><strong>Priority:</strong>{{task.priority}}</p>
+                        <p>{{task.description}}</p>
+                        {% if not task.is_completed %}
+                            <a href = "{% url 'complete_task' task.id %}" class="btn btn-primary btn-sm">✅ Mark as Completed></a>
+                        {% else %}
+                        <span style="color: green; font-weight: bold;">✔️ Completed</span>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+
+                </div>
+                {% else %}
 
                 <div class="empty-state" id="empty-state" style="display:none;">
                     <div class="icon">📭</div>
                     <h3>No tasks assigned to you</h3>
                     <p>Check back later or contact your admin.</p>
                 </div>
+                {% endif %}
             </div>
         </div>
     </div>
