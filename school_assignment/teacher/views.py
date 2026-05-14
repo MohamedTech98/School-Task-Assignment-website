@@ -40,14 +40,13 @@ def completed(request):
     })
     
 @login_required
-@login_required
 def complete_task(request, pk):
     task = get_object_or_404(Task, id=pk, teacher=request.user)
     task.is_completed = True
     task.completed_at = timezone.now()  
     task.save()
     return redirect('teacher_tasks')
- 
+
 @login_required
 def profile(request):
     completed_Tasks = Task.objects.filter(teacher=request.user,is_completed=True)
@@ -59,6 +58,21 @@ def profile(request):
          })
 
 @login_required
-def details(request):
-    return render(request, 'Task_Teacher/task_details.html')
+def details(request, pk):
+    task = get_object_or_404(Task, id=pk, teacher=request.user)
 
+    if request.method == 'POST':
+        status = request.POST.get('status')
+
+        if status == 'completed':
+            task.is_completed = True
+            task.completed_at = timezone.now()
+        else:
+            task.is_completed = False
+            task.completed_at = None
+
+        task.save()
+
+    return render(request, 'Task_Teacher/task_details.html', {
+        'task': task
+    })
