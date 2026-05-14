@@ -50,8 +50,13 @@ def complete_task(request, pk):
  
 @login_required
 def profile(request):
-    return render(request, 'Task_Teacher/TeacherProfile.html')
-
+    completed_Tasks = Task.objects.filter(teacher=request.user,is_completed=True)
+    pending_Tasks = Task.objects.filter(teacher=request.user,is_completed=False)  
+    return render(request,'Task_Teacher/TeacherProfile.html' ,{
+    'totalpending':pending_Tasks.count(),
+    'totalcompleted':completed_Tasks.count(),
+    
+         })
 
 @login_required
 def details(request):
