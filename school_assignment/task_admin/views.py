@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Task
 from .forms import TaskForm
+from authentication.models import User
 
 
 def create_task_view(request):
@@ -17,14 +18,23 @@ def create_task_view(request):
 
 def edit_task_view(request, pk):
     task = get_object_or_404(Task, pk=pk)
+    teachers = User.objects.filter(role='teacher')
+
     if request.method == 'POST':
         form = TaskForm(request.POST, instance=task)
+
         if form.is_valid():
             form.save()
             return redirect('dashboard')
+
     else:
         form = TaskForm(instance=task)
-    return render(request, 'Task_admin/edit_task.html', {'form': form})
+
+    return render(request, 'Task_admin/edit_task.html', {
+        'form': form,
+        'task': task,
+        'teachers': teachers,
+    })
 
 
 def all_task_view(request):
