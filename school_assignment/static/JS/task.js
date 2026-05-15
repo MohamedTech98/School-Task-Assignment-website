@@ -1,210 +1,156 @@
-// // We keep tasks in a plain JS variable instead of localStorage
-// // Every function below reads from / writes to this variable
-// let currentTasks = [];
 
-// // ===================== STATS =====================
-// // Reads from currentTasks (no localStorage)
-// function update_stats() {
-//     const total     = currentTasks.length;
-//     const pending   = currentTasks.filter(t => t.task_progress?.toLowerCase() === "pending").length;
-//     const completed = currentTasks.filter(t => t.task_progress?.toLowerCase() === "completed").length;
-//     const highPri   = currentTasks.filter(t => t.task_prioirty?.toLowerCase() === "hard" ||
-//                                                t.task_prioirty?.toLowerCase() === "high").length;
+const welcome = window.document.getElementById("name_admin");
+const user_admin = JSON.parse(localStorage.getItem("user"));
 
-//     document.getElementById("total-tasks").innerHTML       = total;
-//     document.getElementById("total-pending").innerHTML     = pending;
-//     document.getElementById("total-completed").innerHTML   = completed;
-//     document.getElementById("total-HighPriority").innerHTML = highPri;
-// }
+if (user_admin && user_admin.role == "admin") {
+    welcome.innerHTML = user_admin.username + '!';
+} else {
+    window.location.href = "../index.html";
+    alert("You are not admin");
+}
 
-// // ===================== RENDER TABLE =====================
-// // Reads from currentTasks (no localStorage)
-// function read_all_tasks(filter_task = null) {
-//     let tasks = filter_task !== null ? filter_task : currentTasks;
+function update_stats() {
+    const tasks = JSON.parse(localStorage.getItem("all_tasks")) || [];
 
-//     const tbody      = document.querySelector('tbody');
-//     const emptyState = document.getElementById("empty-state");
+    const total      = tasks.length;
+    const pending    = tasks.filter(t => t.task_progress?.toLowerCase() === "pending").length;
+    const completed  = tasks.filter(t => t.task_progress?.toLowerCase() === "completed").length;
+    const highPri    = tasks.filter(t => t.task_prioirty?.toLowerCase() === "hard" ||
+                                        t.task_prioirty?.toLowerCase() === "high").length;
 
-//     tbody.innerHTML = "";
+    document.getElementById("total-tasks").innerHTML      = total;
+    document.getElementById("total-pending").innerHTML    = pending;
+    document.getElementById("total-completed").innerHTML  = completed;
+    document.getElementById("total-HighPriority").innerHTML = highPri;
+}
 
-//     if (tasks.length === 0) {
-//         if (emptyState) emptyState.style.display = "";
-//         return;
-//     }
-//     if (emptyState) emptyState.style.display = "none";
+function read_all_tasks(filter_task = null) {
+    let tasks = JSON.parse(localStorage.getItem("all_tasks")) || [];
+    const tbody = document.querySelector('tbody');
+    const emptyState = document.getElementById("empty-state");
 
-//     for (let i = 0; i < tasks.length; i++) {
-//         // Only show tasks that belong to the logged-in admin
-//         if (user_admin.username != tasks[i].task_admin) {
-//             continue;
-//         }
-//         tbody.innerHTML += `
-//             <tr>
-//                 <td class="task-ID">${tasks[i].task_id}</td>
-//                 <td class="task-name">${tasks[i].task_title}</td>
-//                 <td class="teacher-assigned">${tasks[i].task_teacher}</td>
-//                 <td class="Prioirty-task">${tasks[i].task_prioirty}</td>
-//                 <td class="Progress-task">${tasks[i].task_progress}</td>
-//                 <td class="admin-created">${tasks[i].task_admin}</td>
-//                 <td>
-//                     <button class="edit_task btn btn-danger btn-sm">Edit</button>
-//                     <button class="delete_row btn btn-danger btn-sm">Delete</button>
-//                 </td>
-//             </tr>
-//         `;
-//     }
-// }
+    tbody.innerHTML = "";
 
-// // ===================== AJAX — LOAD ALL TASKS =====================
-// // Runs when the page loads. Fetches all tasks from the server
-// // and puts them in currentTasks, then draws the table.
-// window.addEventListener("load", function() {
-//     loadTasksFromServer();
-// });
+    if (tasks.length === 0) {
+        if (emptyState) emptyState.style.display = "";
+        return;
+    }
+    if (emptyState) emptyState.style.display = "none";
 
-// function loadTasksFromServer() {
+    if(filter_task !== null) {
+        tasks = filter_task;
+    }
 
-//     // Step 1: send a GET request — "give me all tasks"
-//     fetch("/api/tasks/create/", {
-//         method: "GET",
-//         headers: {
-//             "Content-Type": "application/json"
-//         }
-//     })
-
-//     // Step 2: read the response as JSON
-//     .then(function(response) {
-//         if (response.ok) {
-//             console.log("Got tasks from the server successfully!");
-//         } else {
-//             console.log("Server error when loading tasks. Status:", response.status);
-//         }
-//         return response.json();
-//     })
-
-//     // Step 3: convert server shape → shape the rest of the code expects
-//     .then(function(serverTasks) {
-//         console.log("Tasks from server:", serverTasks);
-
-//         currentTasks = []; // reset before filling
-
-//         for (let i = 0; i < serverTasks.length; i++) {
-//             const t = serverTasks[i];
-//             currentTasks.push({
-//                 task_id:          t.task_code,
-//                 task_title:       t.title,
-//                 task_teacher:     t.teacher,
-//                 task_prioirty:    t.priority  || "N/A",
-//                 task_progress:    t.progress  || "Pending",
-//                 task_admin:       t.admin,
-//                 task_description: t.description,
-//                 task_date:        t.deadline
-//             });
-//         }
-
-//         // Step 4: draw the table and update the stat cards
-//         read_all_tasks();
-//         update_stats();
-//     })
-
-//     // Step 5: network failure — show empty table
-//     .catch(function(error) {
-//         console.log("AJAX request failed (network error):", error);
-//         read_all_tasks();
-//         update_stats();
-//     });
-// }
+    for (let i = 0; i < tasks.length; i++) {
+        if(user_admin.username != tasks[i].task_admin) {
+            continue;
+        }
+        tbody.innerHTML += `
+            <tr>
+                <td class="task-ID">${tasks[i].task_id}</td>
+                <td class="task-name">${tasks[i].task_title}</td>
+                <td class="teacher-assigned">${tasks[i].task_teacher}</td>
+                <td class="Prioirty-task">${tasks[i].task_prioirty}</td>
+                <td class="Progress-task">${tasks[i].task_progress}</td>
+                <td class="admin-created">${tasks[i].task_admin}</td>
+                <td>
+                    <button class="edit_task btn btn-danger btn-sm">Edit</button>
+                    <button class="delete_row btn btn-danger btn-sm">Delete</button>
+                </td>
+            </tr>
+        `;
+    }
+}
 
 
-// // ===================== DELETE =====================
-// const target = document.querySelector("table");
+function insert_row() {
+    const insert_task = JSON.parse(localStorage.getItem("new_task"));
 
-// function Delete_Row(e) {
-//     if (!e.target.classList.contains("delete_row")) return;
+    if (insert_task) {
+        let tasks = JSON.parse(localStorage.getItem("all_tasks")) || [];
 
-//     const row = e.target.closest("tr");
-//     const id  = row.querySelector(".task-ID").textContent.trim();
+        const new_task = {
+            task_id:       insert_task.id_task,
+            task_title:    insert_task.title_task,
+            task_teacher:  insert_task.teacher_task,
+            task_prioirty: insert_task.prioirty_task,
+            task_progress: "Pending",
+            task_admin:    insert_task.name_admin,
+            task_description: insert_task.description,
+            task_date: insert_task.date_task
+        };
 
-//     // Step 1: send a DELETE request to the server
-//     fetch("/api/tasks/edit/" + id + "/", {
-//         method: "DELETE",
-//         headers: {
-//             "X-CSRFToken": getCookie("csrftoken")
-//         }
-//     })
+        tasks.push(new_task);
+        localStorage.setItem("all_tasks", JSON.stringify(tasks));
 
-//     .then(function(response) {
-//         if (response.ok || response.status === 204) {
-//             // 204 No Content is the normal response for a successful DELETE
-//             console.log("Task deleted from server successfully.");
+        localStorage.removeItem("new_task");
+    }
 
-//             // Step 2: remove from our local array too
-//             currentTasks = currentTasks.filter(t => t.task_id !== id);
+    read_all_tasks();
+    update_stats();
+}
 
-//             // Step 3: remove the row from the table and refresh stats
-//             row.remove();
-//             update_stats();
-//         } else {
-//             console.log("Server error when deleting. Status:", response.status);
-//             alert("Could not delete task. Please try again.");
-//         }
-//     })
-
-//     .catch(function(error) {
-//         console.log("AJAX delete failed (network error):", error);
-//         alert("Network error. Please check your connection and try again.");
-//     });
-// }
-
-// // ===================== EDIT (navigate to edit page) =====================
-// // We pass the task_code in the URL so edit_task.js can fetch it from the server
-// function edit_task(e) {
-//     if (!e.target.classList.contains("edit_task")) return;
-
-//     const row = e.target.closest("tr");
-//     const id  = row.querySelector(".task-ID").textContent.trim();
-
-//     // Pass the task code as a query parameter — no localStorage needed
-//     window.location.href = "edit_task.html?task_code=" + encodeURIComponent(id);
-// }
-
-// // ===================== FILTERS =====================
-// // Filters currentTasks in memory — no localStorage needed
-// function applyFilters() {
-//     const selectedPriority = document.getElementById('filter-priority').value.toLowerCase();
-
-//     let matchedTasks = [];
-//     for (let i = 0; i < currentTasks.length; i++) {
-//         const Task = currentTasks[i];
-//         if (selectedPriority === '' || Task.task_prioirty.toLowerCase() == selectedPriority) {
-//             matchedTasks.push(Task);
-//         }
-//     }
-
-//     read_all_tasks(matchedTasks);
-// }
-
-// function resetFilters() {
-//     document.getElementById('filter-priority').value = '';
-//     read_all_tasks();
-// }
-
-// target.addEventListener("click", Delete_Row);
-// target.addEventListener("click", edit_task);
+window.addEventListener("load", insert_row);
 
 
-// // Helper function to read the CSRF token from the browser cookies.
-// function getCookie(name) {
-//     let cookieValue = null;
-//     if (document.cookie && document.cookie !== "") {
-//         const cookies = document.cookie.split(";");
-//         for (let i = 0; i < cookies.length; i++) {
-//             const cookie = cookies[i].trim();
-//             if (cookie.startsWith(name + "=")) {
-//                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-//                 break;
-//             }
-//         }
-//     }
-//     return cookieValue;
-// }
+const target = document.querySelector("table");
+
+function Delete_Row(e) {
+    if (!e.target.classList.contains("delete_row")) return;
+
+    const row = e.target.closest("tr");
+    const id  = row.querySelector(".task-ID").textContent.trim();
+
+    let tasks = JSON.parse(localStorage.getItem("all_tasks")) || [];
+    tasks = tasks.filter(t => t.task_id !== id);
+    localStorage.setItem("all_tasks", JSON.stringify(tasks));
+
+    row.remove();
+    update_stats();
+}
+
+function edit_task(e) {
+    if (!e.target.classList.contains("edit_task")) return;
+
+    const row      = e.target.closest("tr");
+    const id       = row.querySelector(".task-ID").textContent.trim();
+    const title    = row.querySelector(".task-name").textContent.trim();
+    const teacher  = row.querySelector(".teacher-assigned").textContent.trim();
+    const priority = row.querySelector(".Prioirty-task").textContent.trim();
+    const progress = row.querySelector(".Progress-task").textContent.trim();
+    const admin    = row.querySelector(".admin-created").textContent.trim();
+
+    const task = {
+        id_task:       id,
+        title_task:    title,
+        teacher_task:  teacher,
+        prioirty_task: priority,
+        progress:      progress,
+        admin_task:    admin,
+    };
+
+    localStorage.setItem("edit_task", JSON.stringify(task));
+    window.location.href = "edit_task.html";
+}
+
+function applyFilters() {
+    const selectedPriority = document.getElementById('filter-priority').value.toLowerCase();
+
+    
+    const allTasks = JSON.parse(localStorage.getItem('all_tasks')) || [];
+
+    let matchedTasks = [];
+    for (let i = 0; i < allTasks.length; i++) {
+        const Task = allTasks[i];
+        if (selectedPriority === '' || Task.task_prioirty.toLowerCase() == selectedPriority)
+            matchedTasks.push(Task);
+    }
+
+    read_all_tasks(matchedTasks);
+}
+function resetFilters() {
+    document.getElementById('filter-priority').value = '';
+    DisplayTasks();
+}
+target.addEventListener("click", Delete_Row);
+target.addEventListener("click", edit_task);

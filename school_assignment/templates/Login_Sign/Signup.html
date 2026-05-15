@@ -36,7 +36,7 @@
 
       {% if messages %}
         {% for message in messages %}
-          <div class="message {{ message.tags }}">{{ message }}</div>
+          <div class="message {{ message.tags }}" style="padding: 12px 16px; border-radius: 10px; margin-bottom: 15px; font-size: 14px; font-weight: 500; background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0;">{{ message }}</div>
         {% endfor %}
       {% endif %}
 
@@ -112,10 +112,14 @@ document.querySelectorAll('.role-btn').forEach(btn => {
     document.getElementById('{{ form.role.id_for_label }}').value = this.dataset.value;
   });
 });
-// Hide the actual select element
+// Sync select with active button and hide it
 document.addEventListener('DOMContentLoaded', function() {
   const select = document.getElementById('{{ form.role.id_for_label }}');
-  if (select) select.style.display = 'none';
+  if (select) {
+    const active = document.querySelector('.role-btn.active');
+    if (active) select.value = active.dataset.value;
+    select.style.display = 'none';
+  }
 });
 </script>
 </body>

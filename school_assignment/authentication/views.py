@@ -1,22 +1,20 @@
-from django.db.models import Count
 from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
-from task_admin.models import Task
 
 from .forms import LoginForm, RegistrationForm
 
 
 def get_role_dashboard(user):
     if user.role == 'admin':
-        return 'dashboard'
+        return 'admin_dashboard'
     return 'teacher_tasks'
 
 
 def home_view(request):
-    # if request.user.is_authenticated:
-    #     return redirect(get_role_dashboard(request.user))
+    if request.user.is_authenticated:
+        return redirect(get_role_dashboard(request.user))
     return render(request, 'index.html')
 
 
@@ -71,22 +69,19 @@ def logout_view(request):
 
 @login_required
 def admin_dashboard(request):
-    mytask = Task.objects.filter(
-        admin = request.user
-    )
-    prioirty_high = mytask.filter(priority = 'high').count()
-    completed_tasks = mytask.filter(is_completed=True)
-    pending_tasks = mytask.filter(is_completed=False)
-    
-    total_task = mytask.count()
-    total_completed  = completed_tasks.count()
-    total_pending  = pending_tasks.count()
+    return render(request, 'Task_admin/Dashboard.html')
 
-    return render(request, 'Task_admin/Dashboard.html',{
-        'mytask':mytask,
-        'priority_high':prioirty_high,
-        'total_task':total_task,
-        'total_completed': total_completed,
-        'total_pending': total_pending,
-        }
-        )
+
+@login_required
+def admin_create_task(request):
+    return render(request, 'Task_admin/create_task.html')
+
+
+@login_required
+def admin_all_task(request):
+    return render(request, 'Task_admin/all_task.html')
+
+
+@login_required
+def admin_edit_task(request):
+    return render(request, 'Task_admin/edit_task.html')
