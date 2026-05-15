@@ -15,7 +15,7 @@
             <span>EduTask</span>
         </a>
         <a href="{% url 'profile' %}" style="margin-right: auto;">
-            <span id="spanteachername">{{user.first_name}} {{user.last_name}}</span>
+            <span id="spanteachername">{{ user.get_full_name|default:user.username }}</span>
         </a>
         <ul class="nav-links">
             <li><a href="{% url 'teacher_tasks' %}"><span>📋</span><span>My Tasks</span></a> </li>
@@ -24,6 +24,13 @@
         </ul>
     </nav> 
     <div class="page">
+
+        {% if messages %}
+          {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+
         <div class="page-header fade-up">
             <h1>My Profile-EduTask</h1>
         </div>
@@ -33,7 +40,7 @@
                     <h2>👤Personal Information</h2>
                 </div><br>
                 <center>
-                    <h1 id="teachern">{{user.first_name}} {{user.last_name}}</h1>
+                    <h1 id="teachern">{{ user.get_full_name|default:user.username }}</h1>
                 </center><br>
                 <div id="forrm">
                     <form id="profileform">

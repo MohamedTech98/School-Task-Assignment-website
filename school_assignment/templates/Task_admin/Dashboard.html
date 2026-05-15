@@ -29,8 +29,14 @@
 
     <div class="page">
 
+        {% if messages %}
+          {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+
         <div class="page-header fade-up">
-            <h1>Welcome,<span id="name_admin">{{user.first_name}} {{user.last_name}}!</span></h1>
+            <h1>Welcome,<span id="name_admin">{{ user.get_full_name|default:user.username }}!</span></h1>
             <p>Manage all tasks you've created and assigned to teachers.</p>
         </div>
 
