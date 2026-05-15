@@ -79,7 +79,37 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody id="completed-tbody"></tbody>
+                    <tbody id="completed-tbody">
+                        {% for task in completed_tasks %}
+                        <tr>
+                            <td><code style="font-size:0.8rem;color:var(--text-muted)">#{{ task.id }}</code></td>
+                            <td style="font-weight:500;">{{ task.title }}</td>
+                            <td>
+                                <span class="badge badge-{{ task.priority|lower }}">{{ task.priority }}</span>
+                            </td>
+                            <td style="font-size:0.85rem;">
+                                {% if task.deadline %}
+                                    {{ task.deadline|date:"d M Y" }}
+                                {% else %}
+                                    —
+                                {% endif %}
+                            </td>
+                            <td style="font-size:0.85rem;color:var(--green);">
+                                {% if task.completed_at %}
+                                    {{ task.completed_at|date:"d M Y" }}
+                                {% else %}
+                                    —
+                                {% endif %}
+                            </td>
+                            <td>{{ task.admin.get_full_name }}</td>
+                            <td>
+                                <a href="{% url 'details' task.id %}" class="btn btn-outline btn-sm">
+                                    View →
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
 
                 <div class="empty-state" id="empty-state" style="display:none;">
