@@ -1,4 +1,4 @@
-from datetime import timezone
+from django.utils import timezone
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
@@ -12,7 +12,7 @@ def teacher_tasks(request):
     completed_Tasks = Task.objects.filter(teacher=request.user,is_completed=True)
     high_priority_tasks = pending_Tasks.filter(priority__iexact='High')
     return render(request,'Task_Teacher/TeacherTasks.html' ,{
-        'alltasks': all_Tasks,
+        'alltasks': pending_Tasks,
         'totalassigned':all_Tasks.count(),
         'totalpending':pending_Tasks.count(),
         'totalcompleted':completed_Tasks.count(),
