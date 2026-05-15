@@ -22,7 +22,6 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'teacher',
     'task_admin.apps.TaskAdminConfig',
-    'rest_framework'
 ]
 
 MIDDLEWARE = [

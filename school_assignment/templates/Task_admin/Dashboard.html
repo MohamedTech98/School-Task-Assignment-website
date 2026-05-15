@@ -6,23 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{% static 'CSS/style_task.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/style_task.css' %}">
     <link rel="stylesheet" href="{% static 'CSS/style1.css' %}">
     <!-- <script async src="login.js"></script> -->
-    <!-- <script async src="task.js"></script> -->
+    <script async src="task.js"></script>
 </head>
 
 <body class="light">
     <nav>
-        <a href="{% url 'dashboard' %}" class="brand">
+        <a href="{% url 'admin_dashboard' %}" class="brand">
             <div class="logo-icon">📋</div>
             <span>EduTask</span>
         </a>
         <ul class="nav-links">
-            <li><a href="{% url 'dashboard' %}">📊 Dashboard</a></li>
-            <li><a href="{% url 'create' %}">➕ Create Task</a> </li>
-            <li><a href="{% url 'all' %}">📋 All Tasks</a> </li>
+            <li><a href="{% url 'admin_dashboard' %}">📊 Dashboard</a></li>
+            <li><a href="{% url 'admin_create_task' %}">➕ Create Task</a> </li>
+            <li><a href="{% url 'admin_all_task' %}">📋 All Tasks</a> </li>
             <li><a href="{% url 'logout' %}" style="color: red;">Logout</a></li>
         </ul>
     </nav>
@@ -30,7 +30,7 @@
     <div class="page">
 
         <div class="page-header fade-up">
-            <h1>Welcome,<span id="name_admin">{{user.first_name}} {{user.last_name}}!</span></h1>
+            <h1>Welcome,<span id="name_admin">Mohamed Ahmed!</span></h1>
             <p>Manage all tasks you've created and assigned to teachers.</p>
         </div>
 
@@ -38,7 +38,7 @@
             <div class="divbeforespanwritingcards ">
                 <div class="stat-icon amber">📋</div>
                 <div>
-                    <div class="scounts" id="total-tasks">{{total_task}}</div>
+                    <div class="scounts" id="total-tasks">0</div>
                     <div class="stat-label">Total tasks</div>
                 </div>
             </div>
@@ -59,8 +59,8 @@
             <div class="divbeforespanwritingcards ">
                 <div class="stat-icon navy">🔴</div>
                 <div>
-                    <div class="scounts" id="total-HighPriority">{{priority_high}}</div>
-                    <div class="stat-label">High</div>
+                    <div class="scounts" id="total-HighPriority">0</div>
+                    <div class="stat-label">High Priority</div>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
         <div class="card fade-up-3">
             <div class="card-header">
                 <h2>My Tasks</h4>
-                    <a href="{% url 'create' %}" class="btn btn-primary btn-sm">+ New Task</a>
+                    <a href="{% url 'admin_create_task' %}" class="btn btn-primary btn-sm">+ New Task</a>
             </div>
 
             <div class="card-body">
@@ -110,28 +110,15 @@
                             </tr>
                         </thead>
                         <tbody id="task-tbody">
-                            {% for task in mytask %}
-                            <tr>
-                                <td class="task-ID">{{task.task_code}}</td>
-                                <td class="task-name">{{task.title}}</td>
-                                <td class="teacher-assigned">{{task.teacher.username}}</td>
-                                <td class="Prioirty-task">{{task.priority}}</td>
-                                <td class="Progress-task">pending</td>
-                                <td class="admin-created">{{task.admin.username}}</td>
-                                <td>
-                                    <a href="{% url 'edit' task.id %}" class="delete_row">Edit</a>
-                                    <a href="{% url 'delete' task.id %}" class="edit_task">Delete</a>
-                                </td>
-                            </tr>
-                            {% endfor %}
+                            
                         </tbody>
                     </table>
-                    <!-- <div class="empty-state" id="empty-state" style="display:none;">
+                    <div class="empty-state" id="empty-state" style="display:none;">
                         <div class="icon">📭</div>
                         <h3>No tasks found</h3>
                         <p>Create your first task to get started.</p>
-                        <a href="{% url 'create' %}" class="btn btn-primary" style="margin-top:1rem;">+ New Task</a>
-                    </div> -->
+                        <a href="{% url 'admin_create_task' %}" class="btn btn-primary" style="margin-top:1rem;">+ New Task</a>
+                    </div>
                 </div>
             </div>
         </div>
