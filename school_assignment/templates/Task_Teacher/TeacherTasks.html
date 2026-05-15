@@ -18,7 +18,7 @@
             <span>EduTask</span>
         </a>
         <a href="{% url 'profile' %}"style="margin-right: auto;">
-            <span id="spanteachername">Teachername</span>
+            <span id="spanteachername">{{user.first_name}} {{user.last_name}}</span>
         </a>
         <ul class="nav-links">
             <li><a href="{% url 'teacher_tasks' %}" class="brand"><span>📋</span><span>My Tasks</span></a> </li>
@@ -103,7 +103,7 @@
                 </div>
                 {% else %}
 
-                <div class="empty-state" id="empty-state" style="display:none;">
+                <div class="empty-state" id="empty-state">
                     <div class="icon">📭</div>
                     <h3>No tasks assigned to you</h3>
                     <p>Check back later or contact your admin.</p>

@@ -108,7 +108,7 @@
                             </td>
                             <td>{{ task.admin.get_full_name }}</td>
                             <td>
-                                <a href="{% url 'details' %}?id={{ task.id }}" class="btn btn-outline btn-sm">
+                                <a href="{% url 'details' task.id %}" class="btn btn-outline btn-sm">
                                     View →
                                 </a>
                             </td>
