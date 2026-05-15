@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/style1.css' %}">
+</head>
+<body class="light">
+    <nav>
+        <a href="{% url 'teacher_tasks' %}" class="brand">
+            <div class="logo-icon">📋</div>
+            <span>EduTask</span>
+        </a>
+        <a href="{% url 'profile' %}" style="margin-right: auto;">
+            <span id="spanteachername">{{user.first_name}} {{user.last_name}}</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="{% url 'teacher_tasks' %}"><span>📋</span><span>My Tasks</span></a> </li>
+            <li><a href="{% url 'completed' %}"><span>✅</span><span>Completed Tasks</span> </a> </li>
+            <li><a href="{% url 'logout' %}" style="color: red;">Logout</a></li>
+        </ul>
+    </nav> 
+    <div class="page">
+        <div class="page-header fade-up">
+            <h1>My Profile-EduTask</h1>
+        </div>
+        <div style="display: flex;">
+            <div class="leftsection">
+                <div style="display: flex;justify-content: space-between;">
+                    <h2>👤Personal Information</h2>
+                </div><br>
+                <center>
+                    <h1 id="teachern">{{user.first_name}} {{user.last_name}}</h1>
+                </center><br>
+                <div id="forrm">
+                    <form id="profileform">
+                        <div>
+                            <Label for="firstname" class="fnameandemail">First Name</Label>
+                            <label for="lastname" class="lnameandspec">Last Name</label><br>
+                            <input type="text" id="firstname" name="firstname" value="{{user.first_name}}"  readonly required>
+                            <input type="text" id="lastname" name="lastname" value="{{user.last_name}}" readonly required><br>
+                        </div><br><br>
+                        <div>
+                            <label for="email" class="fnameandemail">Email</label><br>
+                            <input type="email" id="email" name="email" value="{{user.email}}" readonly>
+                        </div>
+                    </form>
+                </div><br><br><br>
+            </div>
+            <div id="rightsection">
+                <div id="topofright" st>
+                    <h2>📊My Status Overview</h2>
+                </div><br><br>
+                <div id="rightsectionbody">
+                    <span style="font-weight: 500;">✅Total Tasks Completed</span><span id="totaltaskscompleted">{{totalcompleted}}</span><br><br>
+                    <span style="font-weight: 500;">📋Current Tasks</span><span id="currenttasks">{{totalpending}}</span>
+                </div>
+
+            </div>
+        </div>
+    </div>        
+
+    <script src="{% static 'JS/java.js' %}"></script>
+</body>
+</html>

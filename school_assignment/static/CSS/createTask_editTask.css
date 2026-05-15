@@ -1,0 +1,291 @@
+.clear-fix {
+    clear: both;
+}
+
+.navBar {
+    background-color: rgb(18, 18, 61);
+    width: 100%;
+    height: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: left;
+}
+
+.navBar .EduTask .Edu {
+    padding-left: 60px;
+    font-size: 25px;
+    text-decoration: none;
+    color: white;
+}
+
+.navBar .admin_user .admin {
+    background-color: rgb(69, 64, 55);
+    text-decoration: none;
+    color: orange;
+    border-radius: 15px;
+    width: 15px;
+    margin-left: 15px;
+    padding: 4px;
+}
+
+.navBar .Dashboard button {
+    background-color: rgb(18, 18, 61);
+    color: rgb(195, 195, 221);
+    border-radius: none;
+    border: none;
+    font-size: 15px;
+    margin-right: 25px;
+    margin-top: 8px;
+    float: right;
+
+}
+
+.navBar .Dashboard button:hover {
+    background-color: rgba(245, 245, 245, 0.157);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#Logout {
+    color: red;
+}
+
+.section-1 {
+    margin-left: 200px;
+}
+
+.section-1 p {
+    color: #5f6f81;
+}
+
+.section-2 {
+    background-color: beige;
+    margin-left: 200px;
+    border-radius: 15px;
+    width: 60%;
+    float: left;
+}
+
+.section-2 .section-2-1 {
+    padding-top: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.section-2 .span-1 {
+    float: left;
+}
+
+.section-2 .back {
+    background-color: white;
+    float: right;
+    border-radius: 5px;
+    border-color: white;
+    border-style: groove;
+}
+
+.section-2 .section-2-2 label {
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #516283;
+    font-weight: 600;
+    margin-left: 15px;
+}
+
+.section-2 .section-2-2 input {
+    width: 95%;
+    height: 25px;
+    margin-left: 15px;
+}
+
+.section-2 .section-2-2 p {
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: #4866a4;
+    font-weight: 500px;
+    margin-left: 15px;
+}
+
+.section-2 .section-2-2 input:focus{
+    outline: none;
+    border: 1px solid orange;
+}
+
+.section-2 .section-2-2 select {
+    width: 95%;
+    height: 25px;
+    margin-left: 15px;
+}
+
+.section-2 .section-2-2 select:focus{
+    outline: none;
+    border: 1px solid orange;
+}
+
+.section-2 .section-2-2 textarea {
+    min-width: 95%;
+    min-height: 60px;
+    max-width: 90%;
+    margin-left: 15px;
+}
+
+.section-2 .section-2-2 textarea:focus {
+    outline: none;
+    border: 1px solid orange
+}
+
+.section-2 .section-2-2 #create {
+    background-color: orange;
+    border-radius: 6px;
+    width: 125px;
+    height: 40px;
+    font-size: 15px;
+    margin-left: 15px;
+    border-style: groove;
+    border-color: orange;
+}
+
+.section-2 .section-2-2 #create:hover {
+    background-color: orange;
+    box-shadow: 0 4px 15px orange;
+}
+
+.section-2 .section-2-2 #cancel {
+    background-color: white;
+    border-radius: 6px;
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    margin-left: 15px;
+    border-style: groove;
+    border-color: white;
+}
+
+.section-2 .section-2-2 #cancel:hover {
+    background-color: white;
+    box-shadow: 0 4px 15px white;
+}
+
+.sections-3-and-4 {
+    float: right;
+    margin-right: 50px;
+}
+
+.section-3 {
+    background-color: beige;
+    width: 300px;
+    height: 300px;
+}
+
+.section-3 .section-3-1 span {
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.section-3 .section-3-2 #high {
+    background-color: #F8D7DA;
+    color: #A94442;
+    border-radius: 15px;
+    padding: 5px 5px;
+    margin-left: 15px;
+}
+
+.section-3 .section-3-2 #high-p {
+    margin-left: 15px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #183672;
+    font-weight: 500px;
+}
+
+.section-3 .section-3-2 #medium {
+    background-color: #FFF3CD;
+    color: #856404;
+    border-radius: 15px;
+    padding: 5px 5px;
+    margin-left: 15px;
+}
+
+.section-3 .section-3-2 #medium-p {
+    margin-left: 15px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #183672;
+    font-weight: 500px;
+}
+
+.section-3 .section-3-2 #low {
+    background-color: #D4EDDA;
+    color: #155724;
+    border-radius: 15px;
+    padding: 5px 5px;
+    margin-left: 15px;
+}
+
+.section-3 .section-3-2 #low-p {
+    margin-left: 15px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #183672;
+    font-weight: 500px;
+}
+
+.section-4 {
+    background-color: beige;
+    width: 300px;
+    height: 185px;
+    margin-top: 20px;
+}
+
+.section-4 .section-4-1 span {
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.section-4 .section-4-2 p{
+    margin-left: 15px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #183672;
+    font-weight: 500px;
+}
+
+.section-3-edit {
+    background-color: beige;
+    float: right;
+    width: 300px;
+    height: 300px;
+    margin-right: 30px;
+}
+
+.section-3-edit .section-3-edit-1 span {
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.section-3-edit .section-3-edit-2 .Task-ID {
+    margin-left: 15px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #183672;
+    font-weight: 500px;
+}
+
+.section-3-edit .section-3-edit-2 .Task-ID-Info {
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+.section-3-edit .section-3-edit-2 .Status-Info {
+    background-color: rgb(179, 179, 217);
+    border-radius: 15px;
+    padding: 2px 2px;
+    margin-left: 15px;  
+}

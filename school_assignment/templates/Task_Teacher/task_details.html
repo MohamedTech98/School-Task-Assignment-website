@@ -1,0 +1,111 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Details</title>
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/style1.css' %}">
+</head>
+
+<body class="light">
+    <nav>
+        <a href="{% url 'teacher_tasks' %}" class="brand">
+            <div class="logo-icon">📋</div>
+            <span>EduTask</span>
+        </a>
+
+```
+    <ul class="nav-links">
+        <li><a href="{% url 'completed' %}">Completed Tasks</a></li> 
+        <li><a href="{% url 'profile' %}">Profile</a></li>     
+        <li><a href="{% url 'logout' %}" style="color: red;">Logout</a></li>
+    </ul>        
+</nav>      
+
+<div class="page">
+
+    <div class="page-header">
+        <h1>Task Details</h1>
+        <p>Full information about the selected task.</p>
+    </div>
+
+    <div class="card task-details-card">
+        <div class="card-body">
+
+            <!-- Priority + Code -->
+            <div class="task-meta">
+                <span class="priority">
+                    {{ task.priority }}
+                </span>
+                <span class="task-id">
+                    #{{ task.task_code }}
+                </span>
+            </div>
+
+            <!-- Title -->
+            <h2 class="task-title">
+                {{ task.title }}
+            </h2>
+
+            <!-- Info -->
+            <div class="task-info">
+                <p><strong>Teacher:</strong> {{ task.teacher.get_full_name }} </p>
+
+                <p><strong>Status:</strong> 
+                    {% if task.is_completed %}
+                        Completed ✅
+                    {% else %}
+                        Pending ⏳
+                    {% endif %}
+                </p>
+
+                <p><strong>Deadline:</strong> {{ task.deadline }}</p>
+            </div>
+
+            <!-- Description -->
+            <div class="task-description">
+                <h3>Description</h3>
+                <p>
+                    {{ task.description }}
+                </p>
+            </div>
+
+            <!-- Update Status -->
+            <div class="update-section">
+                <h3>Update Status</h3>
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <select name="status">
+                        <option value="pending" {% if not task.is_completed %}selected{% endif %}>Pending</option>
+                        <option value="completed" {% if task.is_completed %}selected{% endif %}>Completed</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary">
+                        Update
+                    </button>
+                </form>
+            </div>
+
+            <!-- Back -->
+            <div class="back-link">
+                <a href="{% url 'teacher_tasks' %}">⬅ Back to My Tasks</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<footer align="center">
+    <p>&copy; 2026 EduTask | IS231 Web Technology Project</p>
+</footer>
+```
+
+</body>
+</html>
